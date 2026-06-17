@@ -1,0 +1,28 @@
+---
+title: "Content as code"
+description: "Why I keep my blog in MDX files instead of a headless CMS."
+date: "2026-06-10"
+tags: ["nextjs", "mdx", "writing"]
+published: true
+---
+
+For a solo site, a CMS is usually more machinery than you need. Here&apos;s why I
+keep everything in plain MDX files.
+
+## Versioned by default
+
+Every post lives in git. I get history, diffs, and backups for free — no
+separate export step, no vendor to migrate away from.
+
+## Components in prose
+
+Because it&apos;s MDX, I can drop a React component right into a paragraph:
+
+```tsx
+<Callout>This is a real component, rendered inline.</Callout>
+```
+
+## Still publishable from anywhere
+
+The one tradeoff — publishing means a commit — I solved with a small API route
+that commits a post for me. Best of both worlds.

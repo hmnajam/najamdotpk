@@ -1,0 +1,30 @@
+---
+title: "Personal Portfolio Site"
+description: "A fast, minimal portfolio built with Next.js, MDX, and an API for publishing posts."
+date: "2026-06-17"
+stack: ["Next.js", "TypeScript", "Tailwind CSS", "MDX"]
+featured: false
+repo: "https://github.com/najamdotpk/najamdotpk"
+demo: "https://najam.pk"
+---
+
+## Overview
+
+This very site. Built clean-and-minimal with the App Router, content as MDX in
+git, and a programmatic publishing API.
+
+## Problem
+
+I wanted a portfolio I fully own — no CMS lock-in — but still be able to publish
+blog posts programmatically.
+
+## Solution
+
+MDX files are the single source of truth. An authenticated API route commits new
+posts to the repo via the GitHub API, triggering an automatic redeploy.
+
+## Results
+
+- 100% static, sub-second loads
+- Zero external content dependencies
+- Publish via git **or** API

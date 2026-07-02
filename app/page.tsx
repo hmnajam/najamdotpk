@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, CalendarClock } from "lucide-react";
 
 import { siteConfig } from "@/config/site";
 import { stats } from "@/data/stats";
@@ -15,6 +15,7 @@ import { Testimonials } from "@/components/testimonials";
 import { Typewriter } from "@/components/typewriter";
 import { Certifications } from "@/components/certifications";
 import { certifications } from "@/data/certifications";
+import { WhatsappIcon } from "@/components/whatsapp-icon";
 
 export default function HomePage() {
   // Show the full set on the home grid (kept to a multiple of 6 so the bento
@@ -245,16 +246,42 @@ export default function HomePage() {
           I&apos;m available for freelance and contract work. Let&apos;s build
           something great together.
         </p>
-        <Button
-          asChild
-          size="lg"
-          className="glow-brand mt-8 bg-brand text-brand-foreground hover:bg-brand/90"
-        >
-          <Link href="/contact">
-            Get in touch
-            <ArrowRight className="h-4 w-4" />
-          </Link>
-        </Button>
+        <div className="mt-8 flex flex-col justify-center gap-3 sm:flex-row sm:flex-wrap">
+          <Button
+            asChild
+            size="lg"
+            className="glow-brand bg-brand text-brand-foreground hover:bg-brand/90"
+          >
+            <a
+              href={siteConfig.calendly}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <CalendarClock className="h-4 w-4" />
+              Book a call
+            </a>
+          </Button>
+          <Button
+            asChild
+            size="lg"
+            className="bg-[#25D366] text-white hover:bg-[#1ebe5b]"
+          >
+            <a
+              href={siteConfig.whatsapp}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <WhatsappIcon className="h-4 w-4" />
+              WhatsApp
+            </a>
+          </Button>
+          <Button asChild size="lg" variant="outline">
+            <Link href="/hire-me">
+              Get in touch
+              <ArrowRight className="h-4 w-4" />
+            </Link>
+          </Button>
+        </div>
       </Reveal>
     </div>
   );

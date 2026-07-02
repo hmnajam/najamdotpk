@@ -1,7 +1,9 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { AppWindow, ArrowRight, Bot, Phone, ShieldCheck } from "lucide-react";
+import { AppWindow, ArrowRight, Bot, CalendarClock, Mail, Phone, ShieldCheck } from "lucide-react";
 
+import { siteConfig } from "@/config/site";
+import { WhatsappIcon } from "@/components/whatsapp-icon";
 import { testimonials } from "@/data/testimonials";
 import { Button } from "@/components/ui/button";
 import { Testimonials } from "@/components/testimonials";
@@ -48,6 +50,55 @@ export default function HireMePage() {
         description="I help teams and founders ship AI that does real work — agents, voice assistants, and systems you own. Here's what I can do for you."
       />
 
+      {/* Primary CTA — up top so hiring is one click away */}
+      <div className="space-y-4">
+        <div className="flex flex-col gap-3 sm:flex-row sm:flex-wrap">
+          <Button
+            asChild
+            size="lg"
+            className="glow-brand bg-brand text-brand-foreground hover:bg-brand/90"
+          >
+            <a
+              href={siteConfig.calendly}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <CalendarClock className="h-4 w-4" />
+              Book a call
+            </a>
+          </Button>
+          <Button
+            asChild
+            size="lg"
+            className="bg-[#25D366] text-white hover:bg-[#1ebe5b]"
+          >
+            <a
+              href={siteConfig.whatsapp}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <WhatsappIcon className="h-4 w-4" />
+              WhatsApp
+            </a>
+          </Button>
+          <Button asChild size="lg" variant="outline">
+            <a href={`mailto:${siteConfig.socials.email}?subject=Project inquiry`}>
+              <Mail className="h-4 w-4" />
+              Email me
+            </a>
+          </Button>
+        </div>
+        <p className="text-sm text-muted-foreground">
+          Or email me directly at{" "}
+          <a
+            href={`mailto:${siteConfig.socials.email}?subject=Project inquiry`}
+            className="font-medium text-foreground underline underline-offset-4 hover:text-brand"
+          >
+            {siteConfig.socials.email}
+          </a>
+        </p>
+      </div>
+
       <section className="grid gap-4 sm:grid-cols-2">
         {services.map((service) => (
           <div
@@ -79,14 +130,43 @@ export default function HireMePage() {
           Ready to start?
         </h2>
         <p className="text-muted-foreground">
-          Tell me about your project and I&apos;ll get back to you.
+          Grab a time that works for you, or send me the details and I&apos;ll
+          get back to you.
         </p>
-        <Button asChild>
-          <Link href="/contact">
-            Get in touch
-            <ArrowRight className="h-4 w-4" />
-          </Link>
-        </Button>
+        <div className="flex flex-col gap-3 sm:flex-row">
+          <Button
+            asChild
+            className="glow-brand bg-brand text-brand-foreground hover:bg-brand/90"
+          >
+            <a
+              href={siteConfig.calendly}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <CalendarClock className="h-4 w-4" />
+              Book a call
+            </a>
+          </Button>
+          <Button
+            asChild
+            className="bg-[#25D366] text-white hover:bg-[#1ebe5b]"
+          >
+            <a
+              href={siteConfig.whatsapp}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <WhatsappIcon className="h-4 w-4" />
+              WhatsApp
+            </a>
+          </Button>
+          <Button asChild variant="outline">
+            <Link href="/contact">
+              Send a message
+              <ArrowRight className="h-4 w-4" />
+            </Link>
+          </Button>
+        </div>
       </section>
     </div>
   );

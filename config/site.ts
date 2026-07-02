@@ -40,6 +40,10 @@ export const siteConfig = {
     linkedin: "https://www.linkedin.com/in/hmnajam",
     email: "hmnajam@gmail.com",
   },
+  calendly: "https://calendly.com/hmnajam/meet-the-founder",
+  // WhatsApp click-to-chat (resolves by number; usernames aren't linkable yet).
+  whatsapp:
+    "https://wa.me/923122981028?text=Hi%20Najam%2C%20I%27d%20like%20to%20discuss%20a%20project",
 } as const;
 
 export type SiteConfig = typeof siteConfig;

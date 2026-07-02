@@ -4,25 +4,29 @@
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    /* Light mode mirrors dark's depth staging: a faintly violet-tinted
+       off-white canvas with pure-white cards, so the translucent surfaces
+       (bg-card/40 etc.) actually read as raised panels instead of washing
+       out white-on-white. */
+    --background: 260 30% 98%;
+    --foreground: 255 30% 10%;
     --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card-foreground: 255 30% 10%;
     --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    --popover-foreground: 255 30% 10%;
+    --primary: 255 30% 12%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 258 24% 95%;
+    --secondary-foreground: 255 30% 12%;
+    --muted: 258 24% 95%;
+    --muted-foreground: 255 8% 40%;
+    --accent: 258 24% 94%;
+    --accent-foreground: 255 30% 12%;
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    --border: 258 22% 89%;
+    --input: 258 22% 89%;
+    --ring: 262 83% 58%;
     --brand: 262 83% 58%;
     --brand-foreground: 0 0% 100%;
     --brand-2: 272 84% 62%;
@@ -88,8 +92,15 @@
     color: transparent;
   }
 
-  /* Single-accent violet bloom — one confident light source, premium depth. */
+  /* Single-accent violet bloom — one confident light source, premium depth.
+     Kept subtle in light mode so it hints rather than washing the page out;
+     dark mode gets the full-strength glow. */
   .ambient-glow {
+    background-image:
+      radial-gradient(58rem 40rem at 50% -12%, hsl(var(--brand) / 0.1), transparent 60%),
+      radial-gradient(40rem 28rem at 88% 8%, hsl(var(--brand-2) / 0.06), transparent 62%);
+  }
+  .dark .ambient-glow {
     background-image:
       radial-gradient(58rem 40rem at 50% -12%, hsl(var(--brand) / 0.24), transparent 60%),
       radial-gradient(40rem 28rem at 88% 8%, hsl(var(--brand-2) / 0.12), transparent 62%);

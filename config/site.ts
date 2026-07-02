@@ -1,7 +1,7 @@
 export const siteConfig = {
   name: "Najam Saeed",
   shortName: "najam.pk",
-  url: "https://najam.pk",
+  url: "https://www.najam.pk",
   description:
     "Najam Saeed — Agentic AI developer who architects and builds autonomous AI agents, voice AI, and sovereign systems that run in production.",
   author: "Najam Saeed",
@@ -28,9 +28,9 @@ export const siteConfig = {
   intro:
     "I architect and build autonomous AI agents, voice AI, and sovereign systems — the kind that run in production and earn their keep.",
   nav: [
+    { title: "Blog", href: "/blog" },
     { title: "Projects", href: "/projects" },
     { title: "Certifications", href: "/certifications" },
-    { title: "Blog", href: "/blog" },
     { title: "About", href: "/about" },
     { title: "Hire me", href: "/hire-me" },
   ],

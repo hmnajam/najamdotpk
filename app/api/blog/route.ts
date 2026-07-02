@@ -13,6 +13,8 @@ const schema = z.object({
   description: z.string().min(1).max(300),
   content: z.string().min(1),
   tags: z.array(z.string()).default([]),
+  category: z.string().optional(),
+  image: z.string().optional(),
   date: z.string().optional(),
   slug: z.string().optional(),
   published: z.boolean().default(true),
@@ -50,7 +52,8 @@ export async function POST(request: Request) {
     );
   }
 
-  const { title, description, content, tags, published } = parsed.data;
+  const { title, description, content, tags, category, image, published } =
+    parsed.data;
   const date = parsed.data.date ?? new Date().toISOString().slice(0, 10);
   const slug = slugify(parsed.data.slug ?? title);
   if (!slug) {
@@ -58,11 +61,14 @@ export async function POST(request: Request) {
   }
 
   // --- Build MDX file -------------------------------------------------------
+  // Only emit optional keys when provided, so files stay clean.
   const fileContent = matter.stringify(content, {
     title,
     description,
     date,
     tags,
+    ...(category ? { category } : {}),
+    ...(image ? { image } : {}),
     published,
   });
   const filePath = `content/blog/${slug}.mdx`;

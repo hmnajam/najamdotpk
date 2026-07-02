@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 
-import { getAllTags, getPosts } from "@/lib/content";
+import { getPosts, getUsedCategories } from "@/lib/content";
 import { PostList } from "@/components/post-list";
 import { PageHeader } from "@/components/page-header";
 
@@ -11,17 +11,17 @@ export const metadata: Metadata = {
 
 export default function BlogPage() {
   const posts = getPosts();
-  const tags = getAllTags();
+  const categories = getUsedCategories();
 
   return (
     <div className="space-y-10">
       <PageHeader
         eyebrow="Writing"
         title="Blog"
-        description="Notes on building AI agents, voice systems, and shipping software that does real work."
+        description="Notes on agentic AI, engineering, and using AI and blockchain for better governance — published weekly."
       />
 
-      <PostList posts={posts} tags={tags} />
+      <PostList posts={posts} categories={categories} />
     </div>
   );
 }

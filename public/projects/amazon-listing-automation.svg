@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="800" height="600">
+  <defs>
+    <linearGradient id="bg2" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0d0a1a"/>
+      <stop offset="1" stop-color="#101a2e"/>
+    </linearGradient>
+    <radialGradient id="glow2" cx="0.3" cy="0.25" r="0.85">
+      <stop offset="0" stop-color="#38bdf8" stop-opacity="0.4"/>
+      <stop offset="1" stop-color="#38bdf8" stop-opacity="0"/>
+    </radialGradient>
+    <pattern id="grid2" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M40 0H0V40" fill="none" stroke="#ffffff" stroke-opacity="0.04"/>
+    </pattern>
+  </defs>
+  <rect width="800" height="600" fill="url(#bg2)"/>
+  <rect width="800" height="600" fill="url(#grid2)"/>
+  <rect width="800" height="600" fill="url(#glow2)"/>
+  <g transform="translate(64,224)">
+    <rect x="0" y="-44" width="68" height="68" rx="16" fill="#38bdf8" fill-opacity="0.16" stroke="#38bdf8" stroke-opacity="0.5"/>
+    <path d="M16 -2 h36 M16 -16 h36 M16 12 h24" stroke="#7dd3fc" stroke-width="4" stroke-linecap="round"/>
+    <text x="100" y="6" font-family="ui-sans-serif,system-ui,sans-serif" font-size="52" font-weight="700" fill="#fafafa" letter-spacing="-1">Amazon Listing</text>
+    <text x="100" y="64" font-family="ui-sans-serif,system-ui,sans-serif" font-size="52" font-weight="700" fill="#fafafa" letter-spacing="-1">Automation</text>
+    <text x="102" y="116" font-family="ui-monospace,monospace" font-size="20" fill="#7dd3fc" letter-spacing="2">AI-GENERATED TITLES · BULLETS · KEYWORDS</text>
+  </g>
+</svg>

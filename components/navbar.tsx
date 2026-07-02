@@ -20,14 +20,19 @@ export function Navbar() {
     pathname === href || pathname.startsWith(href + "/");
 
   return (
-    <header className="sticky top-0 z-40 w-full border-b border-border/60 bg-background/80 backdrop-blur">
-      <div className="mx-auto flex h-16 max-w-5xl items-center justify-between px-4 sm:px-6">
-        <Link href="/" className="font-mono text-sm font-semibold tracking-tight">
+    <header className="sticky top-0 z-40 w-full border-b border-border/60 bg-background/70 backdrop-blur-xl">
+      <div className="mx-auto flex h-16 max-w-[1600px] items-center justify-between px-5 sm:px-8 lg:px-14 xl:px-20">
+        <Link
+          href="/"
+          className="font-mono text-sm font-semibold tracking-tight text-foreground"
+        >
+          <span className="text-brand">&lt;</span>
           {siteConfig.shortName}
+          <span className="text-brand">/&gt;</span>
         </Link>
 
         <div className="flex items-center gap-1 sm:gap-2">
-          <nav className="hidden items-center gap-1 sm:flex">
+          <nav className="hidden items-center gap-6 sm:flex">
             {siteConfig.nav.map((item) => {
               const isCta = item.href === "/hire-me";
               if (isCta) {
@@ -35,7 +40,7 @@ export function Navbar() {
                   <Link
                     key={item.href}
                     href={item.href}
-                    className="ml-1 rounded-full bg-brand px-3.5 py-1.5 text-sm font-medium text-brand-foreground transition-opacity hover:opacity-90"
+                    className="rounded-full border border-brand/30 bg-brand/10 px-4 py-1.5 font-mono text-xs uppercase tracking-widest text-brand transition-colors hover:border-brand/60 hover:bg-brand/20"
                   >
                     {item.title}
                   </Link>
@@ -46,7 +51,7 @@ export function Navbar() {
                   key={item.href}
                   href={item.href}
                   className={cn(
-                    "rounded-md px-2 py-1.5 text-sm transition-colors hover:text-foreground",
+                    "font-mono text-xs uppercase tracking-widest transition-colors hover:text-foreground",
                     isActive(item.href)
                       ? "text-foreground"
                       : "text-muted-foreground"

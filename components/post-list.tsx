@@ -1,34 +1,32 @@
 "use client";
 
 import * as React from "react";
-import Link from "next/link";
 
 import type { Content, PostFrontmatter } from "@/lib/content";
-import { formatDate } from "@/lib/utils";
 import { cn } from "@/lib/utils";
-import { Badge } from "@/components/ui/badge";
+import { PostCard } from "@/components/post-card";
 
 export function PostList({
   posts,
-  tags,
+  categories,
 }: {
   posts: Content<PostFrontmatter>[];
-  tags: string[];
+  categories: string[];
 }) {
   const [active, setActive] = React.useState<string | null>(null);
 
   const filtered = active
-    ? posts.filter((p) => p.frontmatter.tags?.includes(active))
+    ? posts.filter((p) => p.frontmatter.category === active)
     : posts;
 
   return (
     <div className="space-y-8">
-      {tags.length > 0 && (
+      {categories.length > 0 && (
         <div className="flex flex-wrap gap-2">
           <button
             onClick={() => setActive(null)}
             className={cn(
-              "rounded-full border px-3 py-1 text-xs transition-colors",
+              "rounded-full border px-3.5 py-1.5 text-xs font-medium transition-colors",
               active === null
                 ? "border-foreground bg-foreground text-background"
                 : "border-border text-muted-foreground hover:text-foreground"
@@ -36,18 +34,18 @@ export function PostList({
           >
             All
           </button>
-          {tags.map((tag) => (
+          {categories.map((cat) => (
             <button
-              key={tag}
-              onClick={() => setActive(tag)}
+              key={cat}
+              onClick={() => setActive(cat)}
               className={cn(
-                "rounded-full border px-3 py-1 text-xs transition-colors",
-                active === tag
+                "rounded-full border px-3.5 py-1.5 text-xs font-medium transition-colors",
+                active === cat
                   ? "border-foreground bg-foreground text-background"
                   : "border-border text-muted-foreground hover:text-foreground"
               )}
             >
-              {tag}
+              {cat}
             </button>
           ))}
         </div>
@@ -56,35 +54,11 @@ export function PostList({
       {filtered.length === 0 ? (
         <p className="text-muted-foreground">No posts yet.</p>
       ) : (
-        <ul className="divide-y divide-border">
+        <div className="grid gap-6 sm:grid-cols-2">
           {filtered.map((post) => (
-            <li key={post.slug}>
-              <Link
-                href={`/blog/${post.slug}`}
-                className="group flex flex-col gap-1 py-5"
-              >
-                <div className="flex items-baseline justify-between gap-4">
-                  <h2 className="font-medium tracking-tight group-hover:underline">
-                    {post.frontmatter.title}
-                  </h2>
-                  <time className="shrink-0 text-sm text-muted-foreground">
-                    {formatDate(post.frontmatter.date)}
-                  </time>
-                </div>
-                <p className="text-sm text-muted-foreground">
-                  {post.frontmatter.description}
-                </p>
-                <div className="mt-1 flex flex-wrap gap-1.5">
-                  {post.frontmatter.tags?.map((tag) => (
-                    <Badge key={tag} variant="outline" className="font-normal">
-                      {tag}
-                    </Badge>
-                  ))}
-                </div>
-              </Link>
-            </li>
+            <PostCard key={post.slug} post={post} />
           ))}
-        </ul>
+        </div>
       )}
     </div>
   );

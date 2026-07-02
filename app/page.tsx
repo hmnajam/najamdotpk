@@ -6,17 +6,26 @@ import { stats } from "@/data/stats";
 import { skills } from "@/data/skills";
 import { testimonials } from "@/data/testimonials";
 import { getProjects, getPosts } from "@/lib/content";
-import { formatDate } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import { Reveal } from "@/components/reveal";
 import { FeaturedTile } from "@/components/featured-tile";
+import { HeroPanel } from "@/components/hero-panel";
+import { PostCard } from "@/components/post-card";
 import { Testimonials } from "@/components/testimonials";
+import { Typewriter } from "@/components/typewriter";
+import { Certifications } from "@/components/certifications";
+import { certifications } from "@/data/certifications";
 
 export default function HomePage() {
-  const featured = getProjects()
-    .filter((p) => p.frontmatter.featured)
-    .slice(0, 6);
-  const projectsForHome = featured.length > 0 ? featured : getProjects().slice(0, 6);
+  // Show the full set on the home grid (kept to a multiple of 6 so the bento
+  // layout always packs into a flush, even rectangle).
+  const allProjects = getProjects();
+  const projectsForHome = allProjects.slice(0, 12);
+  // Three flagship projects pinned into the hero panel (image-forward proof).
+  const heroOrder = ["visawise", "zerohr", "rapidcontent"];
+  const heroProjects = heroOrder
+    .map((slug) => allProjects.find((p) => p.slug === slug))
+    .filter((p): p is NonNullable<typeof p> => Boolean(p));
   const posts = getPosts().slice(0, 3);
   // Home highlights the AI-focused stack; full breakdown lives on /about.
   const highlightCategories = [
@@ -35,44 +44,81 @@ export default function HomePage() {
   return (
     <div className="space-y-20 sm:space-y-24">
       {/* Hero */}
-      <section className="relative">
+      <section className="relative -mx-4 -mt-12 overflow-hidden px-4 pb-4 pt-12 sm:-mx-6 sm:px-6">
         <div
           aria-hidden="true"
-          className="pointer-events-none absolute -left-20 -top-24 -z-10 h-72 w-[36rem] max-w-full rounded-full bg-[radial-gradient(closest-side,hsl(var(--brand)/0.16),transparent)] blur-2xl"
+          className="ambient-glow pointer-events-none absolute inset-0 -z-10"
         />
-        {siteConfig.available && (
-          <span className="mb-6 inline-flex items-center gap-2 rounded-full bg-brand/10 px-3 py-1 text-sm font-medium text-brand">
-            <span className="h-1.5 w-1.5 rounded-full bg-brand" />
-            Available for work
-          </span>
-        )}
-        <h1 className="text-5xl font-medium leading-[1.02] tracking-tight sm:text-6xl lg:text-7xl">
-          {siteConfig.headline.map((line, i) => (
-            <span key={i} className="block">
-              {line}
+        <div
+          aria-hidden="true"
+          className="bg-grid pointer-events-none absolute inset-0 -z-10 [mask-image:radial-gradient(60%_50%_at_50%_0%,black,transparent)]"
+        />
+        <div className="grid items-start gap-12 lg:grid-cols-[1.2fr_1fr]">
+        <div>
+        <span className="mb-7 inline-flex items-center gap-2.5 rounded-full border border-border bg-card/60 px-4 py-1.5 font-mono text-xs uppercase tracking-widest text-muted-foreground backdrop-blur">
+          {siteConfig.available && (
+            <span className="relative flex h-2 w-2">
+              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-75" />
+              <span className="relative inline-flex h-2 w-2 rounded-full bg-emerald-400" />
             </span>
-          ))}
+          )}
+          {siteConfig.available
+            ? `Available for work · ${siteConfig.eyebrow}`
+            : siteConfig.eyebrow}
+        </span>
+        <h1 className="display text-5xl leading-[0.92] sm:text-7xl lg:text-8xl">
+          I&apos;m {siteConfig.name}
         </h1>
-        <p className="mt-6 max-w-xl text-lg leading-relaxed text-muted-foreground">
+        <p className="display mt-4 text-2xl leading-[1.05] text-brand sm:text-4xl lg:text-5xl">
+          <Typewriter phrases={[...siteConfig.typewriter]} />
+        </p>
+        <p className="mt-7 max-w-xl text-lg leading-relaxed text-muted-foreground">
           {siteConfig.intro}
         </p>
-        <div className="mt-8 flex flex-wrap gap-3">
-          <Button asChild size="lg" className="bg-brand text-brand-foreground hover:bg-brand/90">
+        <div className="mt-7 flex flex-wrap gap-2">
+          {siteConfig.roles.map((role) => (
+            <span
+              key={role.label}
+              className="rounded-md px-3 py-1.5 font-mono text-xs"
+              style={{
+                color: `hsl(var(--${role.color}))`,
+                backgroundColor: `hsl(var(--${role.color}) / 0.14)`,
+              }}
+            >
+              {role.label}
+            </span>
+          ))}
+        </div>
+        <div className="mt-9 flex flex-wrap gap-3">
+          <Button
+            asChild
+            size="lg"
+            className="glow-brand bg-brand text-brand-foreground hover:bg-brand/90"
+          >
             <Link href="/projects">
-              See my work
+              View work
               <ArrowRight className="h-4 w-4" />
             </Link>
           </Button>
           <Button asChild size="lg" variant="outline">
-            <Link href="/contact">Let&apos;s talk</Link>
+            <Link href="/contact">Get in touch</Link>
           </Button>
         </div>
+        </div>
 
-        {/* Stats */}
-        <div className="mt-12 grid grid-cols-3 gap-4 border-t border-border pt-8 sm:max-w-lg">
+        {/* Right column — agent log + flagship project tiles */}
+        {heroProjects.length === 3 && (
+          <div className="mt-4 lg:mt-0">
+            <HeroPanel projects={heroProjects} />
+          </div>
+        )}
+        </div>
+
+        {/* Stats — full-width band under the hero so they anchor the layout */}
+        <div className="mt-14 grid grid-cols-2 gap-x-4 gap-y-8 border-t border-border pt-8 sm:grid-cols-3 lg:grid-cols-5">
           {stats.map((stat) => (
             <div key={stat.label}>
-              <div className="text-3xl font-medium tracking-tight sm:text-4xl">
+              <div className="text-3xl font-semibold tracking-tight sm:text-4xl">
                 {stat.value}
               </div>
               <div className="mt-1 text-sm text-muted-foreground">
@@ -87,9 +133,7 @@ export default function HomePage() {
       {projectsForHome.length > 0 && (
         <Reveal as="section">
           <div className="mb-6 flex items-baseline justify-between">
-            <h2 className="text-2xl font-medium tracking-tight">
-              Selected work
-            </h2>
+            <h2 className="display text-2xl sm:text-3xl">Selected work</h2>
             <Link
               href="/projects"
               className="text-sm text-muted-foreground transition-colors hover:text-foreground"
@@ -97,7 +141,7 @@ export default function HomePage() {
               All projects →
             </Link>
           </div>
-          <div className="grid gap-4 sm:grid-cols-2">
+          <div className="mx-auto max-w-5xl columns-2 gap-4 md:columns-3 lg:columns-4 [&>*]:mb-4">
             {projectsForHome.map((project, i) => (
               <FeaturedTile key={project.slug} project={project} index={i} />
             ))}
@@ -105,13 +149,41 @@ export default function HomePage() {
         </Reveal>
       )}
 
-      {/* Latest writing + Stack */}
-      <Reveal as="section" className="grid gap-12 lg:grid-cols-[1.4fr_1fr]">
-        <div>
+      {/* Certifications */}
+      {certifications.length > 0 && (
+        <Reveal as="section" id="certifications" className="scroll-mt-24">
           <div className="mb-6 flex items-baseline justify-between">
-            <h2 className="text-2xl font-medium tracking-tight">
-              Latest writing
-            </h2>
+            <div className="flex items-baseline gap-3">
+              <h2 className="display text-2xl sm:text-3xl">
+                Certifications
+              </h2>
+              <span className="hidden font-mono text-xs text-muted-foreground sm:inline">
+                — credentials &amp; training
+              </span>
+            </div>
+            <Link
+              href="/certifications"
+              className="text-sm text-muted-foreground transition-colors hover:text-foreground"
+            >
+              All certifications →
+            </Link>
+          </div>
+          <Certifications items={certifications} />
+        </Reveal>
+      )}
+
+      {/* Latest writing */}
+      {posts.length > 0 && (
+        <Reveal as="section">
+          <div className="mb-6 flex items-baseline justify-between">
+            <div className="flex items-baseline gap-3">
+              <h2 className="display text-2xl sm:text-3xl">
+                Latest writing
+              </h2>
+              <span className="hidden font-mono text-xs text-muted-foreground sm:inline">
+                — new post every week
+              </span>
+            </div>
             <Link
               href="/blog"
               className="text-sm text-muted-foreground transition-colors hover:text-foreground"
@@ -119,69 +191,71 @@ export default function HomePage() {
               All posts →
             </Link>
           </div>
-          {posts.length === 0 ? (
-            <p className="text-muted-foreground">No posts yet.</p>
-          ) : (
-            <ul className="divide-y divide-border">
-              {posts.map((post) => (
-                <li key={post.slug}>
-                  <Link
-                    href={`/blog/${post.slug}`}
-                    className="group flex flex-col gap-1 py-4"
-                  >
-                    <div className="flex items-baseline justify-between gap-4">
-                      <span className="font-medium tracking-tight group-hover:underline">
-                        {post.frontmatter.title}
-                      </span>
-                      <time className="shrink-0 text-sm text-muted-foreground">
-                        {formatDate(post.frontmatter.date)}
-                      </time>
-                    </div>
-                    <p className="text-sm text-muted-foreground">
-                      {post.frontmatter.description}
-                    </p>
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          )}
-        </div>
-
-        <div>
-          <h2 className="mb-6 text-2xl font-medium tracking-tight">Stack</h2>
-          <div className="flex flex-wrap gap-2">
-            {highlightSkills.map((skill) => (
-              <span
-                key={skill}
-                className="rounded-md border border-border px-3 py-1.5 text-sm text-muted-foreground"
-              >
-                {skill}
-              </span>
+          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            {posts.map((post) => (
+              <PostCard key={post.slug} post={post} />
             ))}
           </div>
+        </Reveal>
+      )}
+
+      {/* Stack */}
+      <Reveal as="section">
+        <h2 className="display mb-6 text-2xl sm:text-3xl">Stack</h2>
+        <div className="flex flex-wrap gap-2">
+          {highlightSkills.map((skill) => (
+            <span
+              key={skill}
+              className="rounded-md border border-border px-3 py-1.5 text-sm text-muted-foreground"
+            >
+              {skill}
+            </span>
+          ))}
         </div>
       </Reveal>
 
       {/* Testimonials */}
       {testimonials.length > 0 && (
-        <Reveal as="section">
-          <h2 className="mb-6 text-2xl font-medium tracking-tight">
-            What people say
-          </h2>
-          <Testimonials items={testimonials.slice(0, 2)} />
+        <Reveal
+          as="section"
+          className="relative -mx-4 overflow-hidden rounded-3xl border border-border bg-card/30 px-4 py-14 sm:-mx-6 sm:px-10 sm:py-16"
+        >
+          <div
+            aria-hidden="true"
+            className="ambient-glow pointer-events-none absolute inset-0 -z-10 opacity-70"
+          />
+          <div className="mb-10 text-center">
+            <span className="font-mono text-xs uppercase tracking-widest text-brand">
+              Testimonials
+            </span>
+            <h2 className="mt-3 text-3xl font-semibold tracking-tight sm:text-4xl">
+              What people say
+            </h2>
+          </div>
+          <div className="mx-auto max-w-3xl">
+            <Testimonials items={testimonials} />
+          </div>
         </Reveal>
       )}
 
       {/* CTA */}
-      <Reveal as="section" className="rounded-2xl bg-brand px-8 py-12 text-center text-brand-foreground sm:px-12">
-        <h2 className="text-2xl font-medium tracking-tight sm:text-3xl">
+      <Reveal as="section" className="relative overflow-hidden rounded-2xl border border-border bg-card/40 px-8 py-12 text-center sm:px-12">
+        <div
+          aria-hidden="true"
+          className="ambient-glow pointer-events-none absolute inset-0 -z-10 opacity-70"
+        />
+        <h2 className="display text-3xl sm:text-4xl lg:text-5xl">
           Have a project in mind?
         </h2>
-        <p className="mx-auto mt-3 max-w-md text-brand-foreground/80">
+        <p className="mx-auto mt-4 max-w-md text-lg text-muted-foreground">
           I&apos;m available for freelance and contract work. Let&apos;s build
           something great together.
         </p>
-        <Button asChild size="lg" variant="secondary" className="mt-6">
+        <Button
+          asChild
+          size="lg"
+          className="glow-brand mt-8 bg-brand text-brand-foreground hover:bg-brand/90"
+        >
           <Link href="/contact">
             Get in touch
             <ArrowRight className="h-4 w-4" />

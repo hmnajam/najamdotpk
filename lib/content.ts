@@ -22,6 +22,7 @@ export type ProjectFrontmatter = BaseFrontmatter & {
 
 export type PostFrontmatter = BaseFrontmatter & {
   tags: string[];
+  category?: string;
   published?: boolean;
 };
 
@@ -95,4 +96,13 @@ export function getAllTags(): string[] {
     for (const tag of post.frontmatter.tags ?? []) tags.add(tag);
   }
   return [...tags].sort();
+}
+
+// Categories actually used by published posts, in the order they're defined.
+export function getUsedCategories(): string[] {
+  const used = new Set<string>();
+  for (const post of getPosts()) {
+    if (post.frontmatter.category) used.add(post.frontmatter.category);
+  }
+  return [...used];
 }

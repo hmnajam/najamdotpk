@@ -49,7 +49,9 @@ const config: Config = {
   			ring: 'hsl(var(--ring))',
   			brand: {
   				DEFAULT: 'hsl(var(--brand))',
-  				foreground: 'hsl(var(--brand-foreground))'
+  				foreground: 'hsl(var(--brand-foreground))',
+  				2: 'hsl(var(--brand-2))',
+  				3: 'hsl(var(--brand-3))'
   			},
   			chart: {
   				'1': 'hsl(var(--chart-1))',

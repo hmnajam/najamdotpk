@@ -55,13 +55,22 @@ export default function RootLayout({
       >
         <ThemeProvider
           attribute="class"
-          defaultTheme="system"
+          defaultTheme="dark"
           enableSystem
           disableTransitionOnChange
         >
+          {/* Fixed cinematic backdrop — ambient glows + subtle grid on every page. */}
+          <div
+            aria-hidden="true"
+            className="ambient-glow pointer-events-none fixed inset-0 -z-20"
+          />
+          <div
+            aria-hidden="true"
+            className="bg-grid pointer-events-none fixed inset-0 -z-20 opacity-60 [mask-image:radial-gradient(80%_60%_at_50%_0%,black,transparent)]"
+          />
           <div className="flex min-h-dvh flex-col">
             <Navbar />
-            <main className="mx-auto w-full max-w-5xl flex-1 px-4 py-12 sm:px-6 lg:py-16">
+            <main className="mx-auto w-full max-w-[1600px] flex-1 px-5 py-12 sm:px-8 lg:px-14 lg:py-16 xl:px-20">
               {children}
             </main>
             <Footer />

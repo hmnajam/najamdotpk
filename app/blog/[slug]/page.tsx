@@ -4,10 +4,12 @@ import { notFound } from "next/navigation";
 import { ArrowLeft } from "lucide-react";
 
 import { getPost, getPostSlugs } from "@/lib/content";
-import { formatDate } from "@/lib/utils";
+import { formatDate, cn } from "@/lib/utils";
 import { siteConfig } from "@/config/site";
+import { getCategory } from "@/data/categories";
 import { Badge } from "@/components/ui/badge";
 import { Mdx } from "@/components/mdx";
+import { PostCover } from "@/components/post-cover";
 
 export function generateStaticParams() {
   return getPostSlugs().map((slug) => ({ slug }));
@@ -43,6 +45,7 @@ export default async function PostPage({
   if (!post || post.frontmatter.published === false) notFound();
 
   const { frontmatter, body, readingTime } = post;
+  const cat = getCategory(frontmatter.category);
 
   const jsonLd = {
     "@context": "https://schema.org",
@@ -67,15 +70,35 @@ export default async function PostPage({
         All posts
       </Link>
 
+      <PostCover
+        title={frontmatter.title}
+        category={frontmatter.category}
+        size="hero"
+        className="aspect-[16/9] rounded-2xl border border-border"
+      />
+
       <header className="space-y-4">
-        <h1 className="text-3xl font-semibold tracking-tight">
-          {frontmatter.title}
-        </h1>
         <div className="flex flex-wrap items-center gap-3 text-sm text-muted-foreground">
+          {frontmatter.category && (
+            <span
+              className={cn(
+                "rounded-full border px-2.5 py-0.5 font-mono text-[10px] uppercase tracking-widest",
+                cat.badge
+              )}
+            >
+              {frontmatter.category}
+            </span>
+          )}
           <time>{formatDate(frontmatter.date)}</time>
           <span>·</span>
           <span>{readingTime}</span>
         </div>
+        <h1 className="text-3xl font-semibold tracking-tight sm:text-4xl">
+          {frontmatter.title}
+        </h1>
+        <p className="text-lg text-muted-foreground">
+          {frontmatter.description}
+        </p>
         <div className="flex flex-wrap gap-1.5">
           {frontmatter.tags?.map((tag) => (
             <Badge key={tag} variant="outline" className="font-normal">

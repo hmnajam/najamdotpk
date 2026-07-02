@@ -9,11 +9,13 @@ export function PostCover({
   category,
   className,
   size = "card",
+  image,
 }: {
   title: string;
   category?: string;
   className?: string;
   size?: "card" | "hero";
+  image?: string;
 }) {
   const cat = getCategory(category);
 
@@ -25,9 +27,24 @@ export function PostCover({
         className
       )}
     >
-      {/* Subtle grid + corner glow for texture */}
-      <div className="bg-grid pointer-events-none absolute inset-0 opacity-20" />
-      <div className="pointer-events-none absolute -right-12 -top-12 h-40 w-40 rounded-full bg-white/20 blur-3xl" />
+      {image ? (
+        <>
+          {/* Real cover image with a dark scrim so overlaid text stays legible */}
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src={image}
+            alt=""
+            className="absolute inset-0 h-full w-full object-cover"
+          />
+          <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-black/10" />
+        </>
+      ) : (
+        <>
+          {/* Subtle grid + corner glow for texture */}
+          <div className="bg-grid pointer-events-none absolute inset-0 opacity-20" />
+          <div className="pointer-events-none absolute -right-12 -top-12 h-40 w-40 rounded-full bg-white/20 blur-3xl" />
+        </>
+      )}
 
       <div
         className={cn(

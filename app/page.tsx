@@ -10,7 +10,7 @@ import { Button } from "@/components/ui/button";
 import { Reveal } from "@/components/reveal";
 import { FeaturedTile } from "@/components/featured-tile";
 import { HeroPanel } from "@/components/hero-panel";
-import { PostCard } from "@/components/post-card";
+import { FeaturedWriting } from "@/components/featured-writing";
 import { Testimonials } from "@/components/testimonials";
 import { Typewriter } from "@/components/typewriter";
 import { Certifications } from "@/components/certifications";
@@ -22,7 +22,7 @@ export default function HomePage() {
   const allProjects = getProjects();
   const projectsForHome = allProjects.slice(0, 12);
   // Three flagship projects pinned into the hero panel (image-forward proof).
-  const heroOrder = ["visawise", "zerohr", "rapidcontent"];
+  const heroOrder = ["zerohr", "rapidcontent", "jobscout"];
   const heroProjects = heroOrder
     .map((slug) => allProjects.find((p) => p.slug === slug))
     .filter((p): p is NonNullable<typeof p> => Boolean(p));
@@ -129,6 +129,27 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* Latest writing — promoted directly under the hero */}
+      {posts.length > 0 && (
+        <Reveal as="section">
+          <div className="mb-6 flex items-baseline justify-between">
+            <div className="flex items-baseline gap-3">
+              <h2 className="display text-2xl sm:text-3xl">Latest writing</h2>
+              <span className="hidden font-mono text-xs text-muted-foreground sm:inline">
+                — new post every week
+              </span>
+            </div>
+            <Link
+              href="/blog"
+              className="text-sm text-muted-foreground transition-colors hover:text-foreground"
+            >
+              All posts →
+            </Link>
+          </div>
+          <FeaturedWriting posts={posts} />
+        </Reveal>
+      )}
+
       {/* Selected work */}
       {projectsForHome.length > 0 && (
         <Reveal as="section">
@@ -169,33 +190,6 @@ export default function HomePage() {
             </Link>
           </div>
           <Certifications items={certifications} />
-        </Reveal>
-      )}
-
-      {/* Latest writing */}
-      {posts.length > 0 && (
-        <Reveal as="section">
-          <div className="mb-6 flex items-baseline justify-between">
-            <div className="flex items-baseline gap-3">
-              <h2 className="display text-2xl sm:text-3xl">
-                Latest writing
-              </h2>
-              <span className="hidden font-mono text-xs text-muted-foreground sm:inline">
-                — new post every week
-              </span>
-            </div>
-            <Link
-              href="/blog"
-              className="text-sm text-muted-foreground transition-colors hover:text-foreground"
-            >
-              All posts →
-            </Link>
-          </div>
-          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {posts.map((post) => (
-              <PostCard key={post.slug} post={post} />
-            ))}
-          </div>
         </Reveal>
       )}
 

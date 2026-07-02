@@ -24,6 +24,7 @@ export type PostFrontmatter = BaseFrontmatter & {
   tags: string[];
   category?: string;
   published?: boolean;
+  image?: string; // optional cover; falls back to generated PostCover
 };
 
 export type Content<T> = {

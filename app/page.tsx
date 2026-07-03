@@ -49,9 +49,10 @@ export default function HomePage() {
   );
 
   return (
-    <div className="space-y-20 sm:space-y-24">
+    <>
       <PersonWebsiteJsonLd />
-      {/* Hero */}
+      <div className="space-y-20 sm:space-y-24">
+        {/* Hero */}
       <section className="relative -mx-4 -mt-12 overflow-hidden px-4 pb-4 pt-12 sm:-mx-6 sm:px-6">
         <div
           aria-hidden="true"
@@ -297,6 +298,7 @@ export default function HomePage() {
           </Button>
         </div>
       </Reveal>
-    </div>
+      </div>
+    </>
   );
 }

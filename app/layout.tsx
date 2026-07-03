@@ -8,6 +8,7 @@ import { Analytics } from "@vercel/analytics/next";
 import { ThemeProvider } from "@/components/theme-provider";
 import { Navbar } from "@/components/navbar";
 import { Footer } from "@/components/footer";
+import { ChatWidget } from "@/components/chat/chat-widget";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -83,6 +84,7 @@ export default function RootLayout({
             </main>
             <Footer />
           </div>
+          <ChatWidget />
           <Analytics />
         </ThemeProvider>
       </body>

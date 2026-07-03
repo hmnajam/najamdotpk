@@ -102,7 +102,14 @@ export default function HomePage() {
             </Link>
           </Button>
           <Button asChild size="lg" variant="outline">
-            <Link href="/contact">Get in touch</Link>
+            <a
+              href={siteConfig.calendly}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <CalendarClock className="h-4 w-4" />
+              Book a call
+            </a>
           </Button>
         </div>
         </div>

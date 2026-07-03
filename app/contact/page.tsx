@@ -8,6 +8,7 @@ import { PageHeader } from "@/components/page-header";
 export const metadata: Metadata = {
   title: "Contact",
   description: "Get in touch.",
+  alternates: { canonical: "/contact" },
 };
 
 export default function ContactPage() {

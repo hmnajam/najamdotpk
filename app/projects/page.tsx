@@ -7,6 +7,7 @@ import { PageHeader } from "@/components/page-header";
 export const metadata: Metadata = {
   title: "Projects",
   description: "A curated selection of work I'm proud of.",
+  alternates: { canonical: "/projects" },
 };
 
 export default function ProjectsPage() {

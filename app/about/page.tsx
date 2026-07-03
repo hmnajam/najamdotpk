@@ -9,6 +9,7 @@ import { PageHeader } from "@/components/page-header";
 export const metadata: Metadata = {
   title: "About",
   description: "Who I am and what I work on.",
+  alternates: { canonical: "/about" },
 };
 
 export default function AboutPage() {

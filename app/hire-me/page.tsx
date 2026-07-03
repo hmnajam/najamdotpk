@@ -12,6 +12,7 @@ import { PageHeader } from "@/components/page-header";
 export const metadata: Metadata = {
   title: "Hire me",
   description: "AI agents, voice AI, and sovereign AI systems — built for you.",
+  alternates: { canonical: "/hire-me" },
 };
 
 const services = [

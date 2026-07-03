@@ -7,6 +7,7 @@ import { PageHeader } from "@/components/page-header";
 export const metadata: Metadata = {
   title: "Blog",
   description: "Writing about software and what I learn.",
+  alternates: { canonical: "/blog" },
 };
 
 export default function BlogPage() {

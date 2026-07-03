@@ -1,7 +1,9 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import { ArrowRight, CalendarClock } from "lucide-react";
 
 import { siteConfig } from "@/config/site";
+import { PersonWebsiteJsonLd } from "@/components/structured-data";
 import { stats } from "@/data/stats";
 import { skills } from "@/data/skills";
 import { testimonials } from "@/data/testimonials";
@@ -16,6 +18,10 @@ import { Typewriter } from "@/components/typewriter";
 import { Certifications } from "@/components/certifications";
 import { certifications } from "@/data/certifications";
 import { WhatsappIcon } from "@/components/whatsapp-icon";
+
+export const metadata: Metadata = {
+  alternates: { canonical: "/" },
+};
 
 export default function HomePage() {
   // Show the full set on the home grid (kept to a multiple of 6 so the bento
@@ -44,6 +50,7 @@ export default function HomePage() {
 
   return (
     <div className="space-y-20 sm:space-y-24">
+      <PersonWebsiteJsonLd />
       {/* Hero */}
       <section className="relative -mx-4 -mt-12 overflow-hidden px-4 pb-4 pt-12 sm:-mx-6 sm:px-6">
         <div

@@ -7,6 +7,7 @@ import { PageHeader } from "@/components/page-header";
 export const metadata: Metadata = {
   title: "Certifications",
   description: "Credentials and training in AI engineering, generative AI, and software.",
+  alternates: { canonical: "/certifications" },
 };
 
 export default function CertificationsPage() {

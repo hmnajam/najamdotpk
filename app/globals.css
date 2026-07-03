@@ -8,24 +8,24 @@
        off-white canvas with pure-white cards, so the translucent surfaces
        (bg-card/40 etc.) actually read as raised panels instead of washing
        out white-on-white. */
-    --background: 260 30% 98%;
-    --foreground: 255 30% 10%;
+    --background: 258 35% 96.5%;
+    --foreground: 256 33% 9%;
     --card: 0 0% 100%;
-    --card-foreground: 255 30% 10%;
+    --card-foreground: 256 33% 9%;
     --popover: 0 0% 100%;
-    --popover-foreground: 255 30% 10%;
+    --popover-foreground: 256 33% 9%;
     --primary: 255 30% 12%;
     --primary-foreground: 0 0% 100%;
-    --secondary: 258 24% 95%;
+    --secondary: 258 28% 92%;
     --secondary-foreground: 255 30% 12%;
-    --muted: 258 24% 95%;
-    --muted-foreground: 255 8% 40%;
-    --accent: 258 24% 94%;
+    --muted: 258 28% 92%;
+    --muted-foreground: 256 12% 34%;
+    --accent: 258 28% 91%;
     --accent-foreground: 255 30% 12%;
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
-    --border: 258 22% 89%;
-    --input: 258 22% 89%;
+    --border: 258 20% 84%;
+    --input: 258 20% 84%;
     --ring: 262 83% 58%;
     --brand: 262 83% 58%;
     --brand-foreground: 0 0% 100%;
@@ -97,8 +97,8 @@
      dark mode gets the full-strength glow. */
   .ambient-glow {
     background-image:
-      radial-gradient(58rem 40rem at 50% -12%, hsl(var(--brand) / 0.1), transparent 60%),
-      radial-gradient(40rem 28rem at 88% 8%, hsl(var(--brand-2) / 0.06), transparent 62%);
+      radial-gradient(58rem 40rem at 50% -12%, hsl(var(--brand) / 0.14), transparent 60%),
+      radial-gradient(40rem 28rem at 88% 8%, hsl(var(--brand-2) / 0.09), transparent 62%);
   }
   .dark .ambient-glow {
     background-image:

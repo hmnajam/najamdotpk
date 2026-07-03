@@ -29,7 +29,7 @@ export function Certifications({ items }: { items: Certification[] }) {
         );
 
         const base =
-          "group flex flex-col justify-between rounded-xl border border-border bg-card/40 p-5 transition-colors";
+          "group flex flex-col justify-between rounded-2xl border border-border bg-card p-5 shadow-sm transition-all hover:-translate-y-0.5 hover:shadow-md";
 
         return cert.url ? (
           <Link

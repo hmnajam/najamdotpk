@@ -1,10 +1,15 @@
 import type { Metadata } from "next";
-import { Star } from "lucide-react";
+import Link from "next/link";
+import { ArrowRight, ShieldCheck, Star } from "lucide-react";
 
 import { skills, favoriteTool } from "@/data/skills";
 import { experience } from "@/data/experience";
+import { stats } from "@/data/stats";
+import { certifications } from "@/data/certifications";
 import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
 import { PageHeader } from "@/components/page-header";
+import { Reveal } from "@/components/reveal";
 
 export const metadata: Metadata = {
   title: "About",
@@ -12,42 +17,68 @@ export const metadata: Metadata = {
   alternates: { canonical: "/about" },
 };
 
+function SectionHeading({ children }: { children: React.ReactNode }) {
+  return (
+    <div className="flex items-center gap-3">
+      <h2 className="font-mono text-xs uppercase tracking-widest text-muted-foreground">
+        {children}
+      </h2>
+      <div className="h-px flex-1 bg-border" />
+    </div>
+  );
+}
+
 export default function AboutPage() {
   return (
-    <div className="space-y-12">
+    <div className="space-y-16">
       <div className="space-y-6">
         <PageHeader eyebrow="About" title="Agentic AI developer" />
-        <div className="max-w-2xl space-y-4 text-muted-foreground">
+        <div className="max-w-2xl space-y-4 text-lg leading-relaxed text-muted-foreground">
           <p>
-            I&apos;m an Agentic AI developer. I build AI agents, voice AI
-            agents, and sovereign AI systems — software that reasons, acts, and
-            gets real work done, not just chat demos.
+            I&apos;m an Agentic AI developer. I build AI agents, voice AI agents,
+            and sovereign AI systems — software that reasons, acts, and gets real
+            work done, not just chat demos.
           </p>
           <p>
-            My background is full-stack engineering, which means I can take an
-            AI system the whole way: from the agent logic and tool integrations
-            to the backend that runs it and the product people actually use. I
-            care about systems that are reliable and that you own — especially
-            when the AI is doing something that matters.
+            My background is full-stack engineering, which means I can take an AI
+            system the whole way: from the agent logic and tool integrations to
+            the backend that runs it and the product people actually use. I care
+            about systems that are reliable and that you own — especially when the
+            AI is doing something that matters.
           </p>
           <p>
-            I care about shipping. I&apos;d rather get something real in front
-            of users and iterate than polish a plan forever — while keeping the
+            I care about shipping. I&apos;d rather get something real in front of
+            users and iterate than polish a plan forever — while keeping the
             fundamentals solid enough to move fast without things breaking.
-          </p>
-          <p>
-            This is placeholder copy — replace it with your own story in{" "}
-            <code>app/about/page.tsx</code>.
           </p>
         </div>
       </div>
 
-      <section className="space-y-4">
-        <h2 className="text-lg font-medium tracking-tight">Skills</h2>
-        <div className="space-y-4">
+      {/* Stats */}
+      <section className="grid grid-cols-2 gap-4 sm:grid-cols-4">
+        {stats.slice(0, 4).map((stat) => (
+          <div
+            key={stat.label}
+            className="rounded-2xl border border-border bg-card p-5 shadow-sm"
+          >
+            <div className="text-3xl font-semibold tracking-tight text-gradient">
+              {stat.value}
+            </div>
+            <div className="mt-1 text-sm text-muted-foreground">{stat.label}</div>
+          </div>
+        ))}
+      </section>
+
+      {/* Skills */}
+      <section className="space-y-5">
+        <SectionHeading>Skills &amp; stack</SectionHeading>
+        <div className="grid gap-4 sm:grid-cols-2">
           {skills.map((group) => (
-            <div key={group.category} className="space-y-2">
-              <h3 className="text-sm font-medium text-muted-foreground">
+            <div
+              key={group.category}
+              className="space-y-3 rounded-2xl border border-border bg-card p-5 shadow-sm"
+            >
+              <h3 className="text-sm font-medium text-foreground">
                 {group.category}
               </h3>
               <div className="flex flex-wrap gap-1.5">
@@ -76,24 +107,82 @@ export default function AboutPage() {
         </p>
       </section>
 
-      <section className="space-y-4">
-        <h2 className="text-lg font-medium tracking-tight">Experience</h2>
-        <ul className="space-y-6">
+      {/* Experience */}
+      <section className="space-y-5">
+        <SectionHeading>Experience</SectionHeading>
+        <ol className="relative space-y-8 border-l border-border pl-6">
           {experience.map((job) => (
-            <li key={`${job.company}-${job.role}`} className="space-y-1">
-              <div className="flex items-baseline justify-between gap-4">
+            <li key={`${job.company}-${job.role}`} className="relative">
+              <span className="absolute -left-[1.7rem] top-1.5 h-3 w-3 rounded-full border-2 border-brand bg-background" />
+              <div className="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1">
                 <h3 className="font-medium">
                   {job.role} · {job.company}
                 </h3>
-                <span className="shrink-0 text-sm text-muted-foreground">
+                <span className="shrink-0 font-mono text-xs uppercase tracking-widest text-muted-foreground">
                   {job.period}
                 </span>
               </div>
-              <p className="text-sm text-muted-foreground">{job.description}</p>
+              <p className="mt-1.5 text-sm leading-relaxed text-muted-foreground">
+                {job.description}
+              </p>
             </li>
           ))}
-        </ul>
+        </ol>
       </section>
+
+      {/* Certifications teaser */}
+      {certifications.length > 0 && (
+        <section className="space-y-5">
+          <SectionHeading>Certifications</SectionHeading>
+          <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+            {certifications.slice(0, 3).map((cert) => (
+              <div
+                key={cert.title}
+                className="flex flex-col justify-between rounded-2xl border border-border bg-card p-5 shadow-sm"
+              >
+                <ShieldCheck className="h-5 w-5 text-brand" />
+                <div className="mt-4">
+                  <h3 className="text-[15px] font-medium leading-snug tracking-tight">
+                    {cert.title}
+                  </h3>
+                  <p className="mt-1.5 font-mono text-xs uppercase tracking-widest text-brand">
+                    {cert.issuer} · {cert.date}
+                  </p>
+                </div>
+              </div>
+            ))}
+          </div>
+          <Link
+            href="/certifications"
+            className="inline-flex items-center gap-1.5 text-sm font-medium text-brand transition-colors hover:text-brand-2"
+          >
+            View all certifications
+            <ArrowRight className="h-4 w-4" />
+          </Link>
+        </section>
+      )}
+
+      {/* CTA */}
+      <Reveal className="rounded-2xl border border-border bg-card p-8 shadow-sm sm:p-10">
+        <h2 className="text-2xl font-medium tracking-tight sm:text-3xl">
+          Have something that needs to think and act?
+        </h2>
+        <p className="mt-3 max-w-xl text-muted-foreground">
+          I take AI systems from idea to production — agents, voice AI, and
+          sovereign deployments. Let&apos;s talk about what you&apos;re building.
+        </p>
+        <div className="mt-6 flex flex-wrap gap-3">
+          <Button asChild size="lg">
+            <Link href="/hire-me">
+              Work with me
+              <ArrowRight className="h-4 w-4" />
+            </Link>
+          </Button>
+          <Button asChild size="lg" variant="outline">
+            <Link href="/contact">Get in touch</Link>
+          </Button>
+        </div>
+      </Reveal>
     </div>
   );
 }

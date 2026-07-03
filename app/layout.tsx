@@ -4,6 +4,7 @@ import "./globals.css";
 
 import { siteConfig } from "@/config/site";
 import { Analytics } from "@vercel/analytics/next";
+import { GoogleAnalytics } from "@next/third-parties/google";
 
 import { ThemeProvider } from "@/components/theme-provider";
 import { Navbar } from "@/components/navbar";
@@ -87,6 +88,9 @@ export default function RootLayout({
           <ChatWidget />
           <Analytics />
         </ThemeProvider>
+        {process.env.NEXT_PUBLIC_GA_ID && (
+          <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GA_ID} />
+        )}
       </body>
     </html>
   );

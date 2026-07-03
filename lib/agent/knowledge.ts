@@ -41,7 +41,8 @@ function buildDocs(): KnowledgeDoc[] {
   const docs: KnowledgeDoc[] = [];
 
   if (rag.sources.projects) {
-    for (const p of getProjects()) {
+    const projects = getProjects();
+    for (const p of projects) {
       docs.push({
         id: `project:${p.slug}`,
         title: p.frontmatter.title,
@@ -50,6 +51,22 @@ function buildDocs(): KnowledgeDoc[] {
         text: `${p.frontmatter.title}. ${p.frontmatter.description}. Stack: ${(
           p.frontmatter.stack ?? []
         ).join(", ")}. ${toPlain(p.body, rag.projectBodyChars)}`,
+      });
+    }
+
+    // Catalog doc: a single overview so broad questions like "what has Najam
+    // built / worked on?" always retrieve the real project list, even when the
+    // wording doesn't lexically overlap any individual project's title/body.
+    if (projects.length > 0) {
+      const list = projects
+        .map((p) => `${p.frontmatter.title} — ${p.frontmatter.description}`)
+        .join("; ");
+      docs.push({
+        id: "catalog:projects",
+        title: "Projects Najam has built",
+        url: "/projects",
+        kind: "project",
+        text: `Overview of the projects, apps, products, and work Najam has built, shipped, and worked on — his portfolio and case studies. ${list}`,
       });
     }
   }
@@ -143,6 +160,54 @@ export type SearchHit = {
  * Keyword-overlap retrieval over the corpus. Returns the top matches as
  * snippets the agent can ground its answer in (and cite via `url`).
  */
+// Words that signal a visitor is asking about Najam's work/portfolio even when
+// they don't name a specific project — used to boost project docs so broad
+// questions ("what has he built?") reliably surface the catalog.
+const PROJECT_INTENT = new Set([
+  "built",
+  "build",
+  "building",
+  "made",
+  "make",
+  "project",
+  "projects",
+  "work",
+  "worked",
+  "working",
+  "portfolio",
+  "app",
+  "apps",
+  "product",
+  "products",
+  "shipped",
+  "ship",
+  "case",
+  "study",
+  "studies",
+  "experience",
+]);
+
+function toHit(doc: KnowledgeDoc): SearchHit {
+  return {
+    title: doc.title,
+    url: doc.url,
+    kind: doc.kind,
+    snippet:
+      doc.text.length > rag.snippetChars
+        ? `${doc.text.slice(0, rag.snippetChars)}…`
+        : doc.text,
+  };
+}
+
+/** Persona/skills/catalog anchors returned when a query matches nothing. */
+function fallbackHits(docs: KnowledgeDoc[], limit: number): SearchHit[] {
+  const anchors = docs.filter(
+    (d) =>
+      d.id === "catalog:projects" || d.kind === "about" || d.kind === "skills"
+  );
+  return anchors.slice(0, limit).map(toHit);
+}
+
 export function searchSite(
   query: string,
   limit = rag.resultLimit
@@ -151,35 +216,40 @@ export function searchSite(
   const docs = getDocs();
 
   if (terms.length === 0) {
-    // No usable query terms → return the persona/skills anchors as a fallback.
-    return docs
-      .filter((d) => d.kind === "about" || d.kind === "skills")
-      .map((d) => ({ title: d.title, url: d.url, kind: d.kind, snippet: d.text }));
+    // No usable query terms → return the catalog/persona anchors as a fallback.
+    return fallbackHits(docs, limit);
   }
+
+  const wantsProjects = terms.some((t) => PROJECT_INTENT.has(t));
 
   const scored = docs.map((doc) => {
     const haystack = doc.text.toLowerCase();
     const titleLc = doc.title.toLowerCase();
+    // Space-collapsed variants so a query like "RapidContent" still matches the
+    // "Rapid Content" title (and vice-versa).
+    const compactHay = haystack.replace(/\s+/g, "");
+    const compactTitle = titleLc.replace(/\s+/g, "");
     let score = 0;
     for (const term of terms) {
-      if (titleLc.includes(term)) score += rag.titleWeight; // title matches weigh more
-      const matches = haystack.split(term).length - 1;
+      if (titleLc.includes(term) || compactTitle.includes(term)) {
+        score += rag.titleWeight; // title matches weigh more
+      }
+      let matches = haystack.split(term).length - 1;
+      if (matches === 0) matches = compactHay.split(term).length - 1;
       score += matches;
     }
+    // Nudge project docs up when the question is about Najam's work.
+    if (wantsProjects && doc.kind === "project" && score > 0) score += 2;
     return { doc, score };
   });
 
-  return scored
+  const hits = scored
     .filter((s) => s.score > 0)
     .sort((a, b) => b.score - a.score)
     .slice(0, limit)
-    .map(({ doc }) => ({
-      title: doc.title,
-      url: doc.url,
-      kind: doc.kind,
-      snippet:
-        doc.text.length > rag.snippetChars
-          ? `${doc.text.slice(0, rag.snippetChars)}…`
-          : doc.text,
-    }));
+    .map(({ doc }) => toHit(doc));
+
+  // Never leave the agent empty-handed — a "what has he built?" style question
+  // that lexically misses everything still gets the catalog/persona anchors.
+  return hits.length > 0 ? hits : fallbackHits(docs, limit);
 }

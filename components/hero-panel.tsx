@@ -8,9 +8,9 @@ import { AgentLog } from "@/components/agent-log";
 // Tinted gradient fallback (matches the bento tiles) used until a real cover
 // image is provided for a project.
 const tints = [
-  "from-violet-500/25 to-indigo-700/10",
-  "from-sky-500/25 to-blue-700/10",
-  "from-fuchsia-500/25 to-purple-700/10",
+  "from-violet-500/40 to-indigo-700/25",
+  "from-sky-500/40 to-blue-700/25",
+  "from-fuchsia-500/40 to-purple-700/25",
 ];
 
 function HeroTile({
@@ -48,20 +48,20 @@ function HeroTile({
           />
         )
       ) : (
-        <div className={`absolute inset-0 bg-gradient-to-br ${tints[index % tints.length]}`}>
+        <div className={`absolute inset-0 bg-secondary bg-gradient-to-br ${tints[index % tints.length]}`}>
           <ProjectIcon
             slug={slug}
-            className="absolute left-1/2 top-1/2 h-8 w-8 -translate-x-1/2 -translate-y-1/2 text-foreground/30"
+            className="absolute left-1/2 top-1/2 h-8 w-8 -translate-x-1/2 -translate-y-1/2 text-foreground/40"
           />
         </div>
       )}
 
-      <div className="absolute inset-0 bg-gradient-to-t from-background/95 via-background/30 to-transparent" />
+      <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/25 to-transparent" />
       <div className="absolute inset-x-0 bottom-0 p-3">
-        <span className="font-mono text-[10px] uppercase tracking-widest text-brand">
+        <span className="font-mono text-[10px] uppercase tracking-widest text-violet-300">
           {frontmatter.stack[0]}
         </span>
-        <h3 className="text-sm font-medium leading-tight tracking-tight">
+        <h3 className="text-sm font-medium leading-tight tracking-tight text-white">
           {frontmatter.title}
         </h3>
       </div>

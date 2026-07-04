@@ -88,10 +88,11 @@ export default function HomePage() {
           {siteConfig.roles.map((role) => (
             <span
               key={role.label}
-              className="rounded-md px-3 py-1.5 font-mono text-xs"
+              className="rounded-md border px-3 py-1.5 font-mono text-xs font-medium"
               style={{
                 color: `hsl(var(--${role.color}))`,
-                backgroundColor: `hsl(var(--${role.color}) / 0.14)`,
+                backgroundColor: `hsl(var(--${role.color}) / 0.12)`,
+                borderColor: `hsl(var(--${role.color}) / 0.35)`,
               }}
             >
               {role.label}

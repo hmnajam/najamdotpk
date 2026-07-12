@@ -18,6 +18,8 @@ export type ProjectFrontmatter = BaseFrontmatter & {
   image?: string;
   repo?: string;
   demo?: string;
+  clientUrl?: string; // a client's live site running this system
+  clientName?: string; // display name for the client (e.g. "Jungle Mug")
 };
 
 export type PostFrontmatter = BaseFrontmatter & {

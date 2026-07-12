@@ -90,6 +90,19 @@ export default async function ProjectPage({
               <ExternalLink className="h-4 w-4" /> Live
             </Link>
           )}
+          {frontmatter.clientUrl && (
+            <Link
+              href={frontmatter.clientUrl}
+              target="_blank"
+              rel="noreferrer"
+              className="inline-flex items-center gap-1.5 text-muted-foreground hover:text-foreground"
+            >
+              <ExternalLink className="h-4 w-4" />
+              {frontmatter.clientName
+                ? `Used by ${frontmatter.clientName}`
+                : "Used by a client"}
+            </Link>
+          )}
           <span className="text-muted-foreground">
             {formatDate(frontmatter.date)}
           </span>

@@ -30,6 +30,7 @@ export const siteConfig = {
   nav: [
     { title: "Blog", href: "/blog" },
     { title: "Projects", href: "/projects" },
+    { title: "Ventures", href: "/ventures" },
     { title: "Certifications", href: "/certifications" },
     { title: "About", href: "/about" },
     { title: "Hire me", href: "/hire-me" },

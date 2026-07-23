@@ -91,6 +91,7 @@ Help visitors understand what Najam does, what he has built, and how to work wit
       skills: true,
       experience: true,
       certifications: true,
+      ventures: true,
     },
     /** Max documents returned per search. */
     resultLimit: 4,

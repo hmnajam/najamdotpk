@@ -1,7 +1,8 @@
 import { getProjects, getPosts } from "@/lib/content";
 import { skills } from "@/data/skills";
 import { experience } from "@/data/experience";
-import { certifications } from "@/data/certifications";
+import { certifications, courseCertifications } from "@/data/certifications";
+import { ventures } from "@/data/ventures";
 import { siteConfig } from "@/config/site";
 import { agentConfig } from "@/config/agent";
 
@@ -19,7 +20,14 @@ export type KnowledgeDoc = {
   title: string;
   /** On-site link the assistant can cite, when the doc maps to a page. */
   url?: string;
-  kind: "project" | "post" | "about" | "skills" | "experience" | "certifications";
+  kind:
+    | "project"
+    | "post"
+    | "about"
+    | "skills"
+    | "experience"
+    | "certifications"
+    | "ventures";
   text: string;
 };
 
@@ -119,13 +127,25 @@ function buildDocs(): KnowledgeDoc[] {
     });
   }
 
+  if (rag.sources.ventures) {
+    for (const v of ventures) {
+      docs.push({
+        id: `venture:${v.name}`,
+        title: `${v.name} — ${v.tagline}`,
+        url: v.url ?? "/ventures",
+        kind: "ventures",
+        text: `${v.name} is a startup Najam founded (${v.role}${v.period ? `, ${v.period}` : ""}, status: ${v.status}). ${v.tagline}. ${v.description} ${v.story}${v.outcome ? ` Outcome: ${v.outcome}.` : ""} Focus areas: ${v.tags.join(", ")}.`,
+      });
+    }
+  }
+
   if (rag.sources.certifications) {
     docs.push({
       id: "data:certifications",
       title: "Certifications",
       url: "/certifications",
       kind: "certifications",
-      text: certifications
+      text: [...certifications, ...courseCertifications]
         .map((c) => `${c.title} — ${c.issuer}, ${c.date}`)
         .join(". "),
     });

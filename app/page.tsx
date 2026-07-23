@@ -17,6 +17,8 @@ import { Testimonials } from "@/components/testimonials";
 import { Typewriter } from "@/components/typewriter";
 import { Certifications } from "@/components/certifications";
 import { certifications } from "@/data/certifications";
+import { Ventures } from "@/components/ventures";
+import { ventures } from "@/data/ventures";
 import { WhatsappIcon } from "@/components/whatsapp-icon";
 
 export const metadata: Metadata = {
@@ -184,6 +186,27 @@ export default function HomePage() {
               <FeaturedTile key={project.slug} project={project} index={i} />
             ))}
           </div>
+        </Reveal>
+      )}
+
+      {/* Ventures */}
+      {ventures.length > 0 && (
+        <Reveal as="section" id="ventures" className="scroll-mt-24">
+          <div className="mb-6 flex items-baseline justify-between">
+            <div className="flex items-baseline gap-3">
+              <h2 className="display text-2xl sm:text-3xl">Ventures</h2>
+              <span className="hidden font-mono text-xs text-muted-foreground sm:inline">
+                — startups I founded
+              </span>
+            </div>
+            <Link
+              href="/ventures"
+              className="text-sm text-muted-foreground transition-colors hover:text-foreground"
+            >
+              All ventures →
+            </Link>
+          </div>
+          <Ventures items={ventures} />
         </Reveal>
       )}
 

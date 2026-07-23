@@ -1,14 +1,30 @@
 ---
 title: "JobScout"
-description: "DRAFT — one-line summary of JobScout. Replace with the real pitch."
+description: "AI job finder and resume studio — scores postings against your profile and explains why each one fits."
 date: "2026-07-02"
-stack: ["Next.js", "TypeScript"]
+stack: ["Next.js", "TypeScript", "LLM", "RAG"]
 featured: true
-image: ""
+image: "/projects/jobscout.jpg"
 repo: ""
-demo: ""
+demo: "https://jobscout.najam.pk/"
 ---
 
 ## Overview
 
-_Draft stub — replace with the real JobScout story, stack, links, and cover image._
+JobScout turns the job hunt around: build a strong resume first, then let an
+agent find the roles that actually fit. It pulls postings from across the web,
+scores each one against your profile, and explains _why_ it fits — surfacing
+both the reasons and the concerns — so you spend your time applying instead of
+scrolling.
+
+## What it does
+
+- **Ranked matches, with reasons.** Run a search and review roles ordered by
+  fit, each annotated with why it matches and what to watch out for.
+- **Resume Studio.** Import a PDF or DOCX, refine it with AI, get ATS-style
+  feedback, and export a polished version.
+- **Model-agnostic, local-first.** Bring any AI provider — cloud or fully local
+  — and keep your data on your own machine.
+
+Built with Next.js and TypeScript, JobScout leans on retrieval to keep its
+match explanations grounded in the real posting rather than guesswork.

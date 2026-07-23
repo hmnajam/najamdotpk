@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 
-import { certifications } from "@/data/certifications";
-import { Certifications } from "@/components/certifications";
+import { certifications, courseCertifications } from "@/data/certifications";
+import { CertificationList, Certifications } from "@/components/certifications";
 import { PageHeader } from "@/components/page-header";
 
 export const metadata: Metadata = {
@@ -23,6 +23,21 @@ export default function CertificationsPage() {
         <p className="text-muted-foreground">No certifications yet.</p>
       ) : (
         <Certifications items={certifications} />
+      )}
+
+      {courseCertifications.length > 0 && (
+        <section className="space-y-4">
+          <div>
+            <h2 className="text-lg font-medium tracking-tight">
+              Course certificates
+            </h2>
+            <p className="mt-1 text-sm text-muted-foreground">
+              The individual courses behind the professional certificate — each
+              one independently verifiable.
+            </p>
+          </div>
+          <CertificationList items={courseCertifications} />
+        </section>
       )}
     </div>
   );

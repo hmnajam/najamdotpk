@@ -50,3 +50,46 @@ export function Certifications({ items }: { items: Certification[] }) {
     </div>
   );
 }
+
+/** Compact one-line-per-credential list, for the longer tail of course certificates. */
+export function CertificationList({ items }: { items: Certification[] }) {
+  if (items.length === 0) return null;
+
+  return (
+    <ul className="divide-y divide-border rounded-2xl border border-border bg-card">
+      {items.map((cert) => {
+        const row = (
+          <>
+            <span className="text-sm leading-snug">{cert.title}</span>
+            <span className="flex shrink-0 items-center gap-2 font-mono text-xs uppercase tracking-widest text-muted-foreground">
+              {cert.issuer} · {cert.date}
+              {cert.url && (
+                <ExternalLink className="h-3.5 w-3.5 transition-colors group-hover:text-foreground" />
+              )}
+            </span>
+          </>
+        );
+
+        const base =
+          "flex items-center justify-between gap-4 px-5 py-3.5 transition-colors";
+
+        return (
+          <li key={cert.title}>
+            {cert.url ? (
+              <Link
+                href={cert.url}
+                target="_blank"
+                rel="noreferrer"
+                className={`group ${base} hover:bg-secondary/50`}
+              >
+                {row}
+              </Link>
+            ) : (
+              <div className={base}>{row}</div>
+            )}
+          </li>
+        );
+      })}
+    </ul>
+  );
+}

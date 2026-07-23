@@ -1,8 +1,8 @@
 ---
 title: "Amazon Listing Automation"
-description: "Automates Amazon product listing creation and optimization — titles, bullets, and keywords."
+description: "Listing automation for an Amazon seller — generates and optimizes titles, bullets, and backend keywords at catalogue scale."
 date: "2026-02-08"
-stack: ["Python", "FastAPI", "OpenAI", "Automation"]
+stack: ["Python", "FastAPI", "LLM", "Automation"]
 featured: false
 image: "/projects/amazon-listing-automation.svg"
 repo: ""
@@ -13,8 +13,25 @@ clientName: "Jungle Mug"
 
 ## Overview
 
-Amazon Listing Automation takes the grind out of marketplace listings —
-generating and optimizing titles, bullet points, and keywords so sellers can
-publish high-converting listings at scale.
+Built for **Jungle Mug**, an Amazon seller with a catalogue too large to write by hand and
+too competitive to write badly. Amazon listings are a strange genre — half copywriting,
+half keyword engineering, entirely governed by rules about character limits and prohibited
+phrasing that the marketplace enforces silently.
 
-_Placeholder copy — replace with the real story._
+## What it does
+
+- **Titles, bullets, and description** generated per product from its attributes, written
+  to Amazon's field limits rather than trimmed to fit afterwards.
+- **Backend keyword sets** built from search-term research, deduplicated against what the
+  title and bullets already cover — the space is limited, so repeating yourself wastes it.
+- **Catalogue-scale runs.** The whole point is doing hundreds of SKUs in one pass, with
+  consistent voice across the range instead of drift between whoever wrote which listing.
+- **Compliance guardrails.** Character caps, banned claims, and formatting rules are
+  enforced in code, not left to the model's discretion.
+
+## Why it mattered
+
+Listing quality is the difference between a product that converts and one that never gets
+seen. Doing it well by hand takes a copywriter who also understands Amazon's search
+ranking — an expensive combination, and a slow one. Automating the first draft moved the
+human effort from writing to reviewing, which is where the judgement actually adds value.

@@ -47,6 +47,32 @@ export const ventures: Venture[] = [
     tags: ["Voice AI", "Agents", "SaaS"],
   },
   {
+    name: "Orion",
+    tagline: "Play-to-earn gaming for teens, on a revenue split",
+    description:
+      "Teens were given gaming NFTs, played to earn crypto, and split the earnings with the company — no capital required from the players.",
+    story:
+      "The model worked. Players earned around PKR 30,000 a month and we split it, so nobody needed money up front to start. Then the November 2022 crypto crash hit and token earnings fell roughly 99% — the same play that paid PKR 30,000 a month was suddenly worth about PKR 300. The unit economics never broke; the asset underneath them did. Players stopped logging in and I closed it rather than string them along.",
+    outcome: "Closed after the Nov 2022 crypto crash",
+    role: "Founder",
+    status: "sunset",
+    image: "/ventures/orion.svg",
+    tags: ["Web3", "NFTs", "Marketplace"],
+  },
+  {
+    name: "Artistica",
+    tagline: "A marketplace for custom accessories and printing",
+    description:
+      "A two-sided marketplace connecting buyers and sellers of customized accessories — mugs, keychains, and print work.",
+    story:
+      "The bet was to take Pakistan Chowk — Karachi's dense, physical bazaar of small printers and accessory makers — online as a marketplace. Getting those sellers digital proved far harder than building the product, and it never reached the density a marketplace needs to work. It failed — but it taught me that marketplace liquidity, not software, is the real problem.",
+    outcome: "Shut down — never reached marketplace liquidity",
+    role: "Founder",
+    status: "sunset",
+    image: "/ventures/artistica.svg",
+    tags: ["Marketplace", "E-commerce", "Print"],
+  },
+  {
     name: "LabCloud",
     tagline: "Lab management, the better way",
     description:
@@ -60,29 +86,5 @@ export const ventures: Venture[] = [
     urlLabel: "Now HealthCloud",
     image: "/ventures/healthcloud.jpg",
     tags: ["LIMS", "HealthTech", "Exit"],
-  },
-  {
-    name: "Orion",
-    tagline: "Play-to-earn gaming for teens, on a revenue split",
-    description:
-      "Teens were given gaming NFTs, played to earn crypto, and split the earnings with the company — no capital required from the players.",
-    story:
-      "The model worked. Players earned around PKR 30,000 a month and we split it, so nobody needed money up front to start. Then the November 2022 crypto crash hit and token earnings fell roughly 99% — the same play that paid PKR 30,000 a month was suddenly worth about PKR 300. The unit economics never broke; the asset underneath them did. Players stopped logging in and I closed it rather than string them along.",
-    outcome: "Closed after the Nov 2022 crypto crash",
-    role: "Founder",
-    status: "sunset",
-    tags: ["Web3", "NFTs", "Marketplace"],
-  },
-  {
-    name: "Artistica",
-    tagline: "A marketplace for custom accessories and printing",
-    description:
-      "A two-sided marketplace connecting buyers and sellers of customized accessories — mugs, keychains, and print work.",
-    story:
-      "The bet was to take Pakistan Chowk — Karachi's dense, physical bazaar of small printers and accessory makers — online as a marketplace. Getting those sellers digital proved far harder than building the product, and it never reached the density a marketplace needs to work. It failed — but it taught me that marketplace liquidity, not software, is the real problem.",
-    outcome: "Shut down — never reached marketplace liquidity",
-    role: "Founder",
-    status: "sunset",
-    tags: ["Marketplace", "E-commerce", "Print"],
   },
 ];

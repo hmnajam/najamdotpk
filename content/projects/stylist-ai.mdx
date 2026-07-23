@@ -1,8 +1,8 @@
 ---
 title: "Stylist AI"
-description: "A personal AI-powered fashion styling assistant that recommends outfits and looks."
+description: "A concept for a personal AI stylist — it learns the wardrobe you already own and dresses you from it. In design, not yet built."
 date: "2026-02-20"
-stack: ["Python", "LLM", "Vision", "OpenAI"]
+stack: ["Vision", "LLM", "Python", "Concept"]
 featured: false
 image: "/projects/stylist-ai.jpg"
 repo: ""
@@ -11,7 +11,30 @@ demo: ""
 
 ## Overview
 
-Stylist AI acts as a personal fashion assistant — it understands your wardrobe
-and preferences and suggests outfits and looks tailored to the occasion.
+> **Status: concept.** Stylist AI is a design I've sketched out but not yet built. What
+> follows is the intended product, not a shipped one.
 
-_Placeholder copy — replace with the real story._
+Every styling app I've seen eventually sells you clothes. Stylist AI starts from the
+opposite premise: **you already own enough.** The interesting problem isn't what to buy,
+it's what to wear from what's already in the cupboard.
+
+## The intended design
+
+- **Photograph your wardrobe once.** A vision pass catalogues each item — type, colour,
+  cut, formality, season — so the system reasons about your actual clothes rather than a
+  generic catalogue.
+- **Dress for the occasion, not the aesthetic.** You'd say "client meeting, 38°C, outside
+  half the day" and get outfits that respect the weather, the dress code, and what's
+  clean.
+- **It learns from what you reject.** The signal isn't the outfit you're shown, it's the
+  one you actually wear. Preference gets inferred from behaviour rather than a
+  questionnaire you fill in once and never revisit.
+- **Gaps, not upsells.** If it repeatedly can't complete a look, it tells you which single
+  item unlocks the most outfits — the one honest place a purchase suggestion earns its
+  keep.
+
+## Why it interests me
+
+It's a good test case for agents operating on the physical world through a messy,
+user-supplied dataset. Nothing about a real wardrobe is clean, labelled, or complete —
+which makes it a more honest benchmark than a curated demo.

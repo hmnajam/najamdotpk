@@ -1,17 +1,44 @@
 ---
 title: "Rapid Content"
-description: "Generate SEO-optimized, citation-backed content rapidly with a retrieval-augmented pipeline."
+description: "Open-source content automation — one idea in, publish-ready posts out for LinkedIn, X, Threads, and long-form blogs."
 date: "2026-04-25"
-stack: ["Python", "LLM", "RAG", "Citations"]
+stack: ["Python", "LLM", "RAG", "Open Source"]
 featured: true
 image: "/projects/rapidcontent.jpg"
 repo: ""
-demo: "https://rapidcontent.najam.pk/"
+demo: ""
 ---
 
 ## Overview
 
-Rapid Content produces SEO-optimized, quality content fast — grounded with
-retrieval so every claim comes with citations rather than hallucinations.
+Rapid Content is an open-source automation for producing quality content rapidly. Give it
+a topic or an angle and it returns publish-ready drafts for **LinkedIn, X, Threads, and
+long-form blog posts** — each written to the shape of its platform rather than the same
+paragraph reflowed four times.
 
-_Placeholder copy — replace with the real story._
+## What it does
+
+- **One idea, four native formats.** A LinkedIn post breathes and builds to a hook. An X
+  post is tight and quotable. Threads takes a looser, more conversational register. A
+  blog post gets structure, headings, and depth. The pipeline knows the difference.
+- **Grounded, not hallucinated.** Retrieval runs before generation, so claims arrive with
+  citations instead of confident invention. That's the whole reason the pipeline exists —
+  volume without grounding is just noise at scale.
+- **SEO-aware long form.** Blog output is written around real search intent, with the
+  headings and internal structure that actually get indexed.
+- **Open source.** The pipeline, prompts, and retrieval layer are all inspectable. If you
+  don't like how a stage behaves, change that stage.
+
+## Why I built it
+
+Content is the highest-leverage, lowest-joy task in running anything solo. The
+interesting part isn't the writing — it's the research, the angle, and the judgement
+about what's worth saying. So I automated the mechanical layer and kept a human at the
+top of it: the pipeline drafts, the human decides what ships.
+
+## Under the hood
+
+A staged pipeline rather than one mega-prompt — research and retrieval, outline,
+platform-specific drafting, then a fact-and-citation pass. Each stage is separately
+inspectable and separately replaceable, which is what makes an open-source version
+actually worth forking.

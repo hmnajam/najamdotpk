@@ -1,18 +1,42 @@
 ---
 title: "LaWisor"
-description: "Free legal advice powered by generative AI and retrieval-augmented generation."
+description: "A concept for free, grounded legal guidance — plain-language answers cited back to real statute. In design, not yet built."
 date: "2026-04-10"
-stack: ["RAG", "LangChain", "Python", "OpenAI"]
-featured: true
+stack: ["RAG", "Python", "LLM", "Concept"]
+featured: false
 image: "/projects/lawisor.jpg"
 repo: ""
-demo: "https://lawisor.najam.pk/"
+demo: ""
 ---
 
 ## Overview
 
-LaWisor makes legal guidance accessible — it answers questions in plain language
-and grounds its responses in real legal sources using retrieval-augmented
-generation.
+> **Status: concept.** LaWisor is a design I've worked through but not yet built. What
+> follows is the intended product, not a shipped one.
 
-_Placeholder copy — replace with the real story._
+Most people never talk to a lawyer about the things that would benefit most from one — a
+tenancy dispute, an inheritance question, a wrongful termination. Not because the law is
+silent on those, but because the first consultation costs more than the problem feels
+worth. LaWisor is an attempt at the first step: a free, plain-language answer to "where do
+I actually stand?"
+
+## The intended design
+
+- **Retrieval before generation.** Answers grounded in actual statute and case law, with
+  the source passage shown alongside every claim. A legal assistant that can't show its
+  source is worse than useless — it's confidently wrong in a domain where that costs
+  people money.
+- **Plain language, not legalese.** The whole point is reaching people who don't have a
+  lawyer. Translating back into jargon would defeat it.
+- **Aggressive scope limits.** It tells you what the law says and what your options look
+  like. It does not draft your filing, predict your outcome, or replace counsel — and it
+  says so loudly, not in a footer.
+- **Corpus first.** The hard problem isn't the model; it's assembling a clean, current,
+  well-cited corpus of law. That's the part that decides whether this is trustworthy or a
+  liability.
+
+## Why it isn't built yet
+
+Because the corpus problem is real, and shipping a legal assistant on a half-built one
+would be irresponsible. It stays a concept until the grounding layer is good enough that
+I'd rely on the answers myself.

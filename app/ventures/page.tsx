@@ -17,7 +17,7 @@ export default function VenturesPage() {
       <PageHeader
         eyebrow="Founded"
         title="Ventures"
-        description="Products I started and took to market — one acquired, two closed, one live. The outcomes are here too, not just the pitches."
+        description="Four companies I started and took to market — newest first. One acquired, two closed, one live. The outcomes are here too, not just the pitches."
       />
 
       {ventures.length === 0 ? (

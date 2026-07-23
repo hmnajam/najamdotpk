@@ -1,8 +1,8 @@
 ---
 title: "najam.pk"
-description: "My personal portfolio and blog — a fast, content-as-code site built with Next.js and MDX."
+description: "This site — a content-as-code portfolio with an agentic assistant that answers questions about my work, grounded in the site itself."
 date: "2025-12-15"
-stack: ["Next.js", "TypeScript", "Tailwind", "MDX"]
+stack: ["Next.js", "TypeScript", "MDX", "Vercel AI SDK"]
 featured: false
 image: "/projects/portfolio-site.jpg"
 repo: ""
@@ -11,7 +11,46 @@ demo: "https://najam.pk"
 
 ## Overview
 
-My personal site — a resume and blog where I write about agentic AI, share my
-work, and keep everything as content-as-code in MDX rather than a headless CMS.
+The site you're reading. It's a portfolio, but it's also the one project where I get to
+make every call myself — so it doubles as a working demonstration of how I think a small,
+fast, agent-bearing product should be built.
 
-_Placeholder copy — replace with the real story._
+## Content as code, not a CMS
+
+Every project and post is an MDX file in the repo. No headless CMS, no database, no
+editor tab open in the background. Content ships the way code ships: a commit, a diff, a
+deploy. It also means the whole site prerenders to static HTML — nothing waits on an API
+to render a paragraph.
+
+There is a small authenticated publishing API on top of it (`POST /api/blog`), which
+commits a new MDX file straight to the repo — so I can publish from anywhere without
+giving up git as the source of truth.
+
+## The assistant is the point
+
+There's an agent on this site — "Virtual Najam" — and it isn't a support-widget FAQ bot.
+It's a real tool-using loop built on the Vercel AI SDK that can:
+
+- **search this site** and answer questions about my work grounded in the actual project
+  and blog content, citing the pages it used;
+- **hand off** to the right channel when someone wants to talk;
+- **capture a lead** — take who you are and what you need, and put it in my inbox.
+
+It's model-agnostic by design: the provider sits behind a single factory, so swapping
+Gemini for Claude, GPT, or a self-hosted model is a one-line change. That's the same
+sovereignty argument I make to clients, applied to my own site.
+
+## Details that took the longest
+
+- **A typewriter headline that doesn't shift the layout** — the line is reserved at its
+  full height so nothing below it jumps as characters land.
+- **Light and dark that both actually work.** Class-based theming with HSL variables, and
+  a genuine light mode rather than a washed-out inversion of the dark one.
+- **A bento project grid that packs flush**, so the section ends on a clean rectangle at
+  every breakpoint instead of a ragged edge.
+- **Motion that respects `prefers-reduced-motion`**, everywhere.
+
+## Stack
+
+Next.js on the App Router, TypeScript, Tailwind, MDX with `rehype-pretty-code`, the
+Vercel AI SDK for the agent, Resend for mail, and Vercel for hosting.

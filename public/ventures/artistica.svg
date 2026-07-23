@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" width="1280" height="720" role="img" aria-label="Artistica — a marketplace for custom accessories and printing">
+  <defs>
+    <linearGradient id="abg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#151019"/>
+      <stop offset="55%" stop-color="#1e1526"/>
+      <stop offset="100%" stop-color="#0d0a11"/>
+    </linearGradient>
+    <radialGradient id="aglow" cx="0.62" cy="0.45" r="0.6">
+      <stop offset="0%" stop-color="#f59e0b" stop-opacity="0.30"/>
+      <stop offset="55%" stop-color="#e11d48" stop-opacity="0.13"/>
+      <stop offset="100%" stop-color="#e11d48" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="amug" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#fbbf24"/>
+      <stop offset="100%" stop-color="#f43f5e"/>
+    </linearGradient>
+    <pattern id="agrid" width="48" height="48" patternUnits="userSpaceOnUse">
+      <path d="M48 0H0V48" fill="none" stroke="#fbbf24" stroke-opacity="0.06" stroke-width="1"/>
+    </pattern>
+  </defs>
+
+  <rect width="1280" height="720" fill="url(#abg)"/>
+  <rect width="1280" height="720" fill="url(#agrid)"/>
+  <rect width="1280" height="720" fill="url(#aglow)"/>
+
+  <!-- network graph: the bazaar, wired up -->
+  <g stroke="#fbbf24" stroke-opacity="0.22" stroke-width="1.5" fill="none">
+    <path d="M470 470 L640 372 L810 470 L640 566 Z"/>
+    <path d="M640 372 L640 566"/>
+    <path d="M470 470 L810 470"/>
+    <path d="M640 372 L470 274 M640 372 L810 274"/>
+    <path d="M470 470 L318 400 M810 470 L962 400"/>
+  </g>
+  <g fill="#fbbf24" fill-opacity="0.55">
+    <circle cx="470" cy="274" r="6"/><circle cx="810" cy="274" r="6"/>
+    <circle cx="318" cy="400" r="5"/><circle cx="962" cy="400" r="5"/>
+    <circle cx="640" cy="566" r="6"/>
+  </g>
+
+  <!-- mug -->
+  <g transform="translate(596 396)">
+    <rect x="0" y="0" width="112" height="128" rx="12" fill="none" stroke="url(#amug)" stroke-width="4"/>
+    <path d="M112 34 h30 a26 26 0 0 1 0 52 h-30" fill="none" stroke="url(#amug)" stroke-width="4"/>
+    <rect x="18" y="26" width="76" height="46" rx="6" fill="#fbbf24" fill-opacity="0.16"/>
+  </g>
+
+  <!-- keychain -->
+  <g transform="translate(452 428)" stroke="#f43f5e" stroke-width="3.5" fill="none" opacity="0.85">
+    <circle cx="18" cy="18" r="17"/>
+    <path d="M18 35 v22"/>
+    <rect x="2" y="57" width="32" height="42" rx="7"/>
+  </g>
+
+  <!-- print sheet -->
+  <g transform="translate(784 414)" opacity="0.85">
+    <rect x="0" y="0" width="96" height="120" rx="8" fill="none" stroke="#fbbf24" stroke-width="3.5"/>
+    <path d="M16 34 h64 M16 58 h64 M16 82 h40" stroke="#fbbf24" stroke-opacity="0.5" stroke-width="3" stroke-linecap="round"/>
+  </g>
+
+  <text x="96" y="122" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="19" letter-spacing="7" fill="#fbbf24" opacity="0.9">MARKETPLACE</text>
+  <text x="96" y="180" font-family="Inter, Segoe UI, system-ui, sans-serif" font-size="58" font-weight="600" letter-spacing="-1.5" fill="#f6f2f4">Artistica</text>
+</svg>

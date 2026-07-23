@@ -1,18 +1,70 @@
 ---
 title: "ZeroHR"
-description: "An AI HR platform that automates onboarding, leave, and people-ops busywork for small teams."
-date: "2026-06-04"
-stack: ["Next.js", "TypeScript", "FastAPI", "OpenAI"]
+description: "AI resume screening you can audit — it cannot score a single candidate until you approve the brief and the rubric."
+date: "2026-07-20"
+stack: ["Next.js", "TypeScript", "Agents", "Self-hosted LLMs"]
 featured: true
-image: "/projects/zerohr.svg"
+image: "/projects/zerohr.jpg"
 repo: ""
 demo: "https://zerohr.najam.pk/"
 ---
 
 ## Overview
 
-ZeroHR takes the repetitive people-ops work off a small team's plate — automating
-onboarding, leave tracking, and the day-to-day HR busywork so founders can focus
-on building.
+Most AI screeners hand you a ranked list and ask you to trust it. ZeroHR does the
+opposite: it shows you how it understood the role, waits for your approval, and then
+shows its evidence for every score it gives.
 
-_Placeholder copy — replace with the real story._
+The whole product is built around one idea — **an AI you can check is worth more than an
+AI you have to trust.**
+
+## The mechanic
+
+Scoring is locked until the hiring brief is approved, and locked again until the rubric
+is approved. That isn't a setting or a best practice; it's enforced in the software.
+There is no path around it — not for the user, not for me.
+
+Four steps, and two of them belong to the human:
+
+1. **It reads the role.** Drop in a job description. The agent works out seniority,
+   industry, team shape, and what the minimum requirements really are — then writes it
+   down as a brief.
+2. **You approve the brief.** Read what it understood, fix what it got wrong. This is a
+   gate, not a notification.
+3. **You approve the rubric.** It proposes weighted criteria for the role. Edit them,
+   reweight them, add your own, or have it rewrite one. The rubric is yours before a
+   single resume is opened.
+4. **Then it scores.** Each resume is scored against your rubric, with the evidence for
+   every criterion and a flag when that evidence is thin.
+
+## Why it's defensible
+
+When a candidate asks why they were rejected — or a regulator does — "the AI decided" is
+not an answer.
+
+- **Evidence per criterion.** Every criterion gets a score and the specific evidence
+  behind it, quoted from the resume rather than paraphrased into a vibe.
+- **Thin evidence is flagged, not counted.** When evidence is absent or tangential, the
+  score is marked for human review. The model admits what it doesn't know.
+- **The maths isn't the model's.** Weighted totals and the final recommendation are
+  computed in code at temperature zero. Same resume, same rubric, same answer — every
+  time.
+- **Blind by default.** Contact details are redacted before a resume is sent for scoring.
+  The model judges the experience, not the name, the address, or the phone number.
+
+## Honest economics
+
+Every AI call is metered — which step, which model, how many tokens, what it cost.
+It's visible inside the product, per job, down to the individual call. Not a line item on
+an invoice you can't reconstruct.
+
+## Sovereign deployment
+
+Some teams can't send candidate data to anyone else's cloud, and most vendors' answer to
+that is simply no. ZeroHR is built to deploy on your own infrastructure running local
+models, so candidate data never leaves your walls. It's scoped as a bespoke deployment
+rather than a checkbox on a pricing page.
+
+## Status
+
+Early, and deliberately so — I'm working closely with the first teams using it.

@@ -13,7 +13,8 @@ import { Reveal } from "@/components/reveal";
 
 export const metadata: Metadata = {
   title: "About",
-  description: "Who I am and what I work on.",
+  description:
+    "Four startups, one exit, two honest failures — and what founding them taught me about building AI that actually ships.",
   alternates: { canonical: "/about" },
 };
 
@@ -32,25 +33,60 @@ export default function AboutPage() {
   return (
     <div className="space-y-16">
       <div className="space-y-6">
-        <PageHeader eyebrow="About" title="Agentic AI developer" />
+        <PageHeader
+          eyebrow="About"
+          title="Four startups. One exit. Now I build agents."
+        />
         <div className="max-w-2xl space-y-4 text-lg leading-relaxed text-muted-foreground">
           <p>
-            I&apos;m an Agentic AI developer. I build AI agents, voice AI agents,
-            and sovereign AI systems — software that reasons, acts, and gets real
-            work done, not just chat demos.
+            I&apos;m a founder who codes — which is a different animal from an
+            engineer who takes tickets. I&apos;ve started four companies, sold
+            one, and closed two with my own hands. Everything I know about
+            building software, I learned by having to sell the thing afterwards.
           </p>
           <p>
-            My background is full-stack engineering, which means I can take an AI
-            system the whole way: from the agent logic and tool integrations to
-            the backend that runs it and the product people actually use. I care
-            about systems that are reliable and that you own — especially when the
-            AI is doing something that matters.
+            <strong className="text-foreground">LabCloud</strong> was the one that
+            worked. Diagnostic labs here ran on paper registers and WhatsApp; I
+            built them a cloud LIMS, sold it lab by lab, and eventually sold the
+            company. It runs today as HealthCloud, serving 70+ clients under its
+            new owners.
           </p>
           <p>
-            I care about shipping. I&apos;d rather get something real in front of
-            users and iterate than polish a plan forever — while keeping the
-            fundamentals solid enough to move fast without things breaking.
+            The other two taught me more.{" "}
+            <strong className="text-foreground">Artistica</strong>{" "}
+            was an attempt
+            to bring Karachi&apos;s Pakistan Chowk — a dense, physical bazaar of
+            small printers and makers — online as a marketplace. The software was
+            the easy part; liquidity was the real problem, and I never solved it.{" "}
+            <strong className="text-foreground">Orion</strong> gave teenagers
+            gaming NFTs and split what they earned. The model worked until
+            November 2022, when the crypto crash cut earnings by roughly 99%
+            overnight. My unit economics never broke — the asset underneath them
+            did. I shut it down rather than string anyone along.
           </p>
+          <p>
+            Now I build agentic AI: agents, voice AI, and sovereign systems that
+            reason, act, and get real work done. I take them the whole way — agent
+            logic, tool integrations, the backend underneath, and the product
+            people actually use. My current one,{" "}
+            <strong className="text-foreground">TalkifAI</strong>, takes you from
+            idea to a working voice agent in minutes.
+          </p>
+          <p>
+            What the founder years actually bought me: I know which corners cost
+            you later, I ship before it&apos;s perfect, and I don&apos;t hand you
+            a demo and call it a product. I also care a great deal about systems
+            you own — because I&apos;ve watched a business evaporate when the
+            thing underneath it belonged to someone else.
+          </p>
+        </div>
+        <div>
+          <Button asChild variant="outline">
+            <Link href="/ventures">
+              See the ventures
+              <ArrowRight className="h-4 w-4" />
+            </Link>
+          </Button>
         </div>
       </div>
 
@@ -103,7 +139,8 @@ export default function AboutPage() {
         </div>
         <p className="flex items-center gap-1.5 text-sm text-muted-foreground">
           <Star className="h-3.5 w-3.5 fill-brand text-brand" />
-          {favoriteTool} is my favorite — it&apos;s where I do most of my work.
+          {favoriteTool}
+          {" is my favorite — it's where I do most of my work."}
         </p>
       </section>
 

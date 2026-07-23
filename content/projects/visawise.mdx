@@ -1,19 +1,36 @@
 ---
 title: "VisaWise"
-description: "Visa consultation delivered through software — an AI assistant that guides applicants through requirements and paperwork."
+description: "Visa consultation delivered as software — an assistant that works out which visa you need, what it requires, and where your application is weak."
 date: "2026-06-10"
-stack: ["Next.js", "TypeScript", "OpenAI", "PostgreSQL"]
+stack: ["Next.js", "TypeScript", "RAG", "LLM"]
 featured: true
 image: "/projects/visawise.jpg"
 repo: ""
-demo: "https://visawise.najam.pk/"
+demo: ""
 ---
 
 ## Overview
 
-VisaWise turns visa consultation into software — it helps applicants figure out
-which visa they need, what documents are required, and how to prepare a strong
-application, all guided by an AI assistant.
+Visa consultants charge a lot for something that is, at its core, an information problem:
+knowing which route fits your situation, what each one demands, and which part of your
+file is going to get you refused. VisaWise turns that consultation into software.
 
-_Placeholder copy — replace with the real story: the problem, your approach, the
-stack, and results._
+## What it does
+
+- **Routes you to the right visa.** A structured intake — purpose, nationality,
+  destination, funds, ties, history — narrows dozens of possible categories to the ones
+  you're actually eligible for, and says why the others were ruled out.
+- **Builds the document checklist for your case.** Not the generic embassy list, but the
+  one your specific route and circumstances require, in the order you should assemble it.
+- **Finds the weak spot before the officer does.** Most refusals come down to the same
+  handful of gaps — thin financials, unclear ties, an unexplained travel history. It
+  flags those early, while there's still time to fix them.
+- **Grounded in the published rules.** Requirements are retrieved from official sources
+  rather than recalled from a model's memory. Immigration rules change, and a confident
+  wrong answer here costs someone a filing fee and a season.
+
+## Where it stands
+
+The build is done to a working assistant; the live deployment is currently down while I
+rework the rules corpus. Immigration guidance is only as good as how current its sources
+are, and I'd rather have it offline than quietly stale.

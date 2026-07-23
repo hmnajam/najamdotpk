@@ -1,8 +1,8 @@
 ---
 title: "Chatify"
-description: "A reliable, affordable WhatsApp API solution for businesses to automate customer conversations."
+description: "An unofficial WhatsApp API with AI built in — programmable messaging for the businesses the official API prices out."
 date: "2026-05-28"
-stack: ["WhatsApp API", "Node.js", "TypeScript", "OpenAI"]
+stack: ["WhatsApp", "Node.js", "TypeScript", "LLM"]
 featured: false
 image: "/projects/chatify.jpg"
 repo: ""
@@ -11,8 +11,35 @@ demo: "https://chatify.najam.pk/"
 
 ## Overview
 
-Chatify gives businesses a dependable, affordable way to reach customers on
-WhatsApp — programmable messaging with automation built in for support, alerts,
-and AI-assisted replies.
+WhatsApp is where customers here actually are — and the official Business API is gated
+behind provider approvals, template review, and per-conversation pricing a small business
+can't justify. Chatify is an **unofficial implementation of the WhatsApp API** that gives
+those businesses programmable messaging anyway, with a layer of AI on top.
 
-_Placeholder copy — replace with the real story._
+## What it does
+
+- **A real API over a WhatsApp session.** Send and receive messages, media, and delivery
+  status through a clean HTTP + webhook interface. No template approvals, no gatekeeper
+  between you and your own customers.
+- **AI replies that hold context.** Point it at your FAQs, catalogue, or docs and it
+  answers customer questions in the thread, remembering what was said earlier in the
+  conversation instead of treating every message as the first.
+- **Handoff to a human.** The agent knows what it doesn't know. When a message needs a
+  person — pricing negotiation, a complaint, anything off-script — it escalates rather
+  than guessing.
+- **Broadcasts and alerts.** Order updates, appointment reminders, and delivery
+  notifications fired from your own backend.
+
+## The honest caveat
+
+"Unofficial" means exactly what it sounds like: this rides a WhatsApp session rather than
+the sanctioned Business API. It's a pragmatic tool for teams who need automation now at a
+price they can afford, and I'd rather say that plainly than dress it up as something it
+isn't.
+
+## What I learned
+
+The AI wasn't the hard part. The hard part was session stability — staying connected,
+reconnecting cleanly, and queuing messages so nothing is silently dropped when the link
+goes down. Most of the engineering went into the boring reliability layer underneath the
+interesting bit, which is usually how this goes.

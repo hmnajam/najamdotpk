@@ -27,6 +27,13 @@ export type Venture = {
   image?: string;
   /** Short capability tags. */
   tags: string[];
+  /**
+   * Pull this one out of the grid into a full-width spotlight. Reserved for the
+   * exit — an equal-sized tile next to two closures undersells what it was.
+   */
+  spotlight?: boolean;
+  /** The single number worth pulling out, shown large in the spotlight card. */
+  metric?: { value: string; label: string };
 };
 
 // Startups founded — distinct from client project work. Two exits/closures are
@@ -78,7 +85,7 @@ export const ventures: Venture[] = [
     description:
       "A cloud LIMS for Pakistani diagnostic labs — sample and test workflows, report delivery, and a patient-facing portal.",
     story:
-      "Labs here ran on paper registers and WhatsApp. LabCloud put the whole workflow — sample intake to report delivery — in one system, and gave patients a portal to pull their own results. I built it, sold it to real labs, and then sold the company. It runs today as HealthCloud, serving 70+ clients under its new owners.",
+      "Labs here ran on paper registers and WhatsApp. LabCloud put the whole workflow — sample intake to report delivery — in one system, and gave patients a portal to pull their own results. I built it, sold it to real labs, and then sold the company. It runs today as HealthCloud — the only one of my ventures that outlived my involvement.",
     outcome: "Acquired — now operating as HealthCloud",
     role: "Founder",
     status: "acquired",
@@ -86,5 +93,10 @@ export const ventures: Venture[] = [
     urlLabel: "Now HealthCloud",
     image: "/ventures/healthcloud.jpg",
     tags: ["LIMS", "HealthTech", "Exit"],
+    spotlight: true,
+    metric: {
+      value: "70+",
+      label: "labs still running it, under new owners",
+    },
   },
 ];

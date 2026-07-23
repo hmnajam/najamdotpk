@@ -40,9 +40,10 @@ export default function AboutPage() {
         <div className="max-w-2xl space-y-4 text-lg leading-relaxed text-muted-foreground">
           <p>
             I&apos;m a founder who codes — which is a different animal from an
-            engineer who takes tickets. I&apos;ve started four companies, sold
-            one, and closed two with my own hands. Everything I know about
-            building software, I learned by having to sell the thing afterwards.
+            engineer who takes tickets. I started my first company in 2015 and
+            haven&apos;t stopped since: four of them, one sold, two closed with
+            my own hands. Everything I know about building software, I learned
+            by having to sell the thing afterwards.
           </p>
           <p>
             <strong className="text-foreground">LabCloud</strong> was the one that

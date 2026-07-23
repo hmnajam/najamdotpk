@@ -9,6 +9,6 @@ export const stats: Stat[] = [
   { value: "4", label: "startups founded" },
   { value: "1", label: "acquired" },
   { value: "20+", label: "projects shipped" },
-  { value: "6+", label: "years building" },
+  { value: "10+", label: "years building" },
   { value: "12", label: "happy clients" },
 ];

@@ -1,11 +1,13 @@
 export type Experience = {
   role: string;
   company: string;
-  period: string;
+  /** Years active. Omit when the dates aren't confirmed. */
+  period?: string;
   description: string;
 };
 
-// Dummy content — replace with your real experience.
+// The founder years are the spine of this history — the individual companies
+// live on /ventures, so this timeline names them rather than repeating them.
 export const experience: Experience[] = [
   {
     role: "Agentic AI Developer",
@@ -15,11 +17,16 @@ export const experience: Experience[] = [
       "Design and build AI agents, voice AI agents, and sovereign AI systems for clients — from agent logic and tool integrations to the backend and product around them.",
   },
   {
-    role: "Full-Stack Developer",
-    company: "Northbeam",
-    period: "2021 — 2023",
+    role: "AI & Automation Consultant",
+    company: "Jungle Mug",
     description:
-      "Built and scaled a Python/FastAPI backend serving millions of requests a day. Owned the API platform end to end.",
+      "Built listing automation for an Amazon seller — generating and optimizing titles, bullets, and backend keywords across the catalogue, with Amazon's field limits and content rules enforced in code.",
+  },
+  {
+    role: "Founder",
+    company: "LabCloud · Artistica · Orion",
+    description:
+      "Started four companies and took them to market. LabCloud, a cloud LIMS for diagnostic labs, was sold and runs today as HealthCloud. Artistica and Orion were closed — the write-ups on the ventures page include why.",
   },
   {
     role: "Freelance Developer",

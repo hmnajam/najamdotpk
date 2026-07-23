@@ -155,9 +155,11 @@ export default function AboutPage() {
                 <h3 className="font-medium">
                   {job.role} · {job.company}
                 </h3>
-                <span className="shrink-0 font-mono text-xs uppercase tracking-widest text-muted-foreground">
-                  {job.period}
-                </span>
+                {job.period && (
+                  <span className="shrink-0 font-mono text-xs uppercase tracking-widest text-muted-foreground">
+                    {job.period}
+                  </span>
+                )}
               </div>
               <p className="mt-1.5 text-sm leading-relaxed text-muted-foreground">
                 {job.description}

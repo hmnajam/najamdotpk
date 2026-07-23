@@ -3,11 +3,12 @@ export type Stat = {
   label: string;
 };
 
-// Edit these with your real numbers. (Placeholder values — replace before launch.)
+// Lead with the founder record — it's the claim nobody else on a shortlist can
+// make, and it's the one that's independently checkable.
 export const stats: Stat[] = [
+  { value: "4", label: "startups founded" },
+  { value: "1", label: "acquired" },
+  { value: "20+", label: "projects shipped" },
   { value: "6+", label: "years building" },
-  { value: "40+", label: "projects shipped" },
   { value: "12", label: "happy clients" },
-  { value: "20+", label: "AI agents deployed" },
-  { value: "99%", label: "uptime in production" },
 ];

@@ -122,7 +122,10 @@ function buildDocs(): KnowledgeDoc[] {
       url: "/about",
       kind: "experience",
       text: experience
-        .map((e) => `${e.role} at ${e.company} (${e.period}): ${e.description}`)
+        .map(
+          (e) =>
+            `${e.role} at ${e.company}${e.period ? ` (${e.period})` : ""}: ${e.description}`
+        )
         .join(" "),
     });
   }

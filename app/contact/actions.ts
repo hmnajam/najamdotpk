@@ -49,7 +49,9 @@ export async function sendContactMessage(
 
   try {
     const { error } = await resend.emails.send({
-      from: process.env.CONTACT_FROM_EMAIL ?? "Contact <onboarding@resend.dev>",
+      // najam.pk is verified in Resend, so the default sender is our own domain
+      // rather than Resend's sandbox — no env var needed in production.
+      from: process.env.CONTACT_FROM_EMAIL ?? "Najam Saeed <hello@najam.pk>",
       to: process.env.CONTACT_TO_EMAIL ?? siteConfig.socials.email,
       replyTo: email,
       subject: `New message from ${name}`,

@@ -41,19 +41,19 @@ export default function AboutPage() {
           <p>
             I&apos;m a founder who codes — which is a different animal from an
             engineer who takes tickets. I started my first company in 2015 and
-            haven&apos;t stopped since: four of them, one sold, two closed with
-            my own hands. Everything I know about building software, I learned
-            by having to sell the thing afterwards.
+            haven&apos;t stopped since: four of them, one sold, three closed
+            with my own hands. Everything I know about building software, I
+            learned by having to sell the thing afterwards.
           </p>
           <p>
             <strong className="text-foreground">LabCloud</strong> was the one that
             worked. Diagnostic labs here ran on paper registers and WhatsApp; I
-            built them a cloud LIMS, sold it lab by lab, and eventually sold the
-            company. It runs today as HealthCloud, serving 70+ clients under its
-            new owners.
+            built them a cloud LIMS, sold it lab by lab, and sold the company at
+            the end of 2019. It runs today as HealthCloud, serving 70+ clients
+            under its new owners.
           </p>
           <p>
-            The other two taught me more.{" "}
+            The ones that didn&apos;t work taught me more.{" "}
             <strong className="text-foreground">Artistica</strong>{" "}
             was an attempt
             to bring Karachi&apos;s Pakistan Chowk — a dense, physical bazaar of
@@ -69,9 +69,10 @@ export default function AboutPage() {
             Now I build agentic AI: agents, voice AI, and sovereign systems that
             reason, act, and get real work done. I take them the whole way — agent
             logic, tool integrations, the backend underneath, and the product
-            people actually use. My current one,{" "}
-            <strong className="text-foreground">TalkifAI</strong>, takes you from
-            idea to a working voice agent in minutes.
+            people actually use. The most recent was{" "}
+            <strong className="text-foreground">TalkifAI</strong>, which took you
+            from idea to a working voice agent in minutes; I wound it down in
+            2026 and now build agentic systems for clients instead.
           </p>
           <p>
             What the founder years actually bought me: I know which corners cost

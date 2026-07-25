@@ -76,8 +76,8 @@ export const agentTools = {
       try {
         const resend = new Resend(apiKey);
         const { error } = await resend.emails.send({
-          from:
-            process.env.CONTACT_FROM_EMAIL ?? "Virtual Najam <onboarding@resend.dev>",
+          // Sends from the verified najam.pk domain by default — see actions.ts.
+          from: process.env.CONTACT_FROM_EMAIL ?? "Virtual Najam <hello@najam.pk>",
           to: process.env.CONTACT_TO_EMAIL ?? siteConfig.socials.email,
           replyTo: email,
           subject: `New lead from the site: ${name}`,

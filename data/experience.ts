@@ -22,7 +22,7 @@ export const experience: Experience[] = [
     company: "TalkifAI",
     period: "2025 — 2026",
     description:
-      "Built and operated a multi-tenant voice AI platform end to end — agent orchestration, telephony, dashboard, docs, and billing. Provisioned for 20 concurrent live calls (~400 calls/hour) with per-call analytics on duration, recordings, and transcripts. Instrumented the full stack with automated end-to-end call testing and a public status page. Deployed for SIEHS, the Sindh government emergency health service, and for HealthCloud, with support for 90+ languages.",
+      "Built and operated a multi-tenant voice AI platform end to end — agent orchestration, telephony, dashboard, docs, and billing. Provisioned for 20 concurrent live calls (~400 calls/hour) with per-call analytics on duration, recordings, and transcripts. Instrumented the full stack with automated end-to-end call testing and a public status page showing 99.9% uptime per component. Deployed for SIEHS, the Sindh government emergency health service, and for HealthCloud, with support for 90+ languages.",
   },
   {
     role: "Instructor",

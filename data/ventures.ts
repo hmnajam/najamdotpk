@@ -45,7 +45,7 @@ export const ventures: Venture[] = [
     description:
       "A platform that makes it effortless to create, launch, and scale voice agents that sound human and deliver business outcomes.",
     story:
-      "Voice is the interface most businesses actually want and almost none can build. TalkifAI collapses that: describe the agent, connect a number, go live. I built the whole product surface — agent orchestration and telephony through to the dashboard, docs, and billing — provisioned for 20 concurrent live calls, around 400 an hour, with per-call analytics on duration, recordings, and transcripts. Every layer was instrumented: API, telephony, database, recording and egress, batch jobs, and RAG memory, with automated end-to-end call testing behind a public status page reporting uptime per component. It ran for SIEHS, the Sindh government emergency health service, and for HealthCloud, in 90+ languages.",
+      "Voice is the interface most businesses actually want and almost none can build. TalkifAI collapses that: describe the agent, connect a number, go live. I built the whole product surface — agent orchestration and telephony through to the dashboard, docs, and billing — provisioned for 20 concurrent live calls, around 400 an hour, with per-call analytics on duration, recordings, and transcripts. Every layer was instrumented: API, telephony, database, recording and egress, batch jobs, and RAG memory, with automated end-to-end call testing behind a public status page — 99.9% uptime, reported per component. It ran for SIEHS, the Sindh government emergency health service, and for HealthCloud, in 90+ languages.",
     outcome: "Closed in 2026",
     role: "Founder",
     period: "2025 — 2026",
@@ -79,7 +79,7 @@ export const ventures: Venture[] = [
     role: "Founder",
     period: "2020",
     status: "sunset",
-    image: "/ventures/artistica.svg",
+    image: "/ventures/artistica.jpg",
     tags: ["Marketplace", "E-commerce", "Print"],
   },
   {

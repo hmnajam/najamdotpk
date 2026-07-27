@@ -1,8 +1,8 @@
 ---
 title: "Amazon Listing Automation"
-description: "Listing automation for an Amazon seller — generates and optimizes titles, bullets, and backend keywords at catalogue scale."
-date: "2026-02-08"
-stack: ["Python", "FastAPI", "LLM", "Automation"]
+description: "A hybrid pipeline for a Dublin Amazon seller — LLM listing copy plus a custom Photoshop script rendering pixel-perfect product images."
+date: "2025-06-01"
+stack: ["Python", "LLM", "Photoshop scripting", "Amazon SP-API"]
 featured: false
 image: "/projects/amazon-listing-automation.svg"
 repo: ""
@@ -13,10 +13,15 @@ clientName: "Jungle Mug"
 
 ## Overview
 
-Built for **Jungle Mug**, an Amazon seller with a catalogue too large to write by hand and
-too competitive to write badly. Amazon listings are a strange genre — half copywriting,
-half keyword engineering, entirely governed by rules about character limits and prohibited
-phrasing that the marketplace enforces silently.
+Built for **Jungle Mug** in Dublin, an Amazon seller with a catalogue too large to write by
+hand and too competitive to write badly. Amazon listings are a strange genre — half
+copywriting, half keyword engineering, half image production, entirely governed by rules
+about character limits and prohibited phrasing that the marketplace enforces silently.
+
+The pipeline is hybrid on purpose: raw artwork and a target market go in, optimised listing
+copy comes out of the LLM, and a **custom Photoshop script** renders the product images
+pixel-perfect. It produced **hundreds of listings** and processed **thousands of receipts,
+emails, and attachments** on the operations side.
 
 ## What it does
 
@@ -26,8 +31,10 @@ phrasing that the marketplace enforces silently.
   title and bullets already cover — the space is limited, so repeating yourself wastes it.
 - **Catalogue-scale runs.** The whole point is doing hundreds of SKUs in one pass, with
   consistent voice across the range instead of drift between whoever wrote which listing.
-- **Compliance guardrails.** Character caps, banned claims, and formatting rules are
-  enforced in code, not left to the model's discretion.
+- **Image rendering from artwork.** A driven Photoshop script takes the raw artwork and
+  composites the product shots to spec — no manual export step between design and listing.
+- **Compliance guardrails.** Character caps and prohibited-claim rules are enforced in
+  code, not left to the model's discretion.
 
 ## Why it mattered
 

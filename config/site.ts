@@ -3,12 +3,17 @@ export const siteConfig = {
   shortName: "najam.pk",
   url: "https://www.najam.pk",
   description:
-    "Najam Saeed — Agentic AI developer who architects and builds autonomous AI agents, voice AI, and sovereign systems that run in production.",
+    "Najam Saeed — Agentic AI engineer building multi-agent workflows, real-time voice agents, and LLM integrations into existing business software. 6+ years of production systems; earlier, a lab management SaaS grown to 30+ laboratories and sold in 2019.",
   author: "Najam Saeed",
   available: true,
   firstName: "Najam",
   lastName: "Saeed",
-  eyebrow: "Agentic AI Developer",
+  eyebrow: "Agentic AI Engineer",
+  // Timezone / overlap — the first thing an overseas client checks.
+  location: "Remote — Karachi (UTC+5)",
+  availability:
+    "Full overlap with UK/EU hours · 4+ hrs daily overlap with US Eastern",
+  phone: "+92 312 2981028",
   // Colored role chips in the hero (color keys map to accent tokens).
   roles: [
     { label: "AI Agents", color: "brand" as const },

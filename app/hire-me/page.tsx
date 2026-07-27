@@ -51,6 +51,11 @@ export default function HireMePage() {
         description="I help teams and founders ship AI that does real work — agents, voice assistants, and systems you own. Here's what I can do for you."
       />
 
+      {/* Working hours — the first thing an overseas client checks */}
+      <p className="font-mono text-xs uppercase tracking-widest text-muted-foreground">
+        {siteConfig.location} · {siteConfig.availability}
+      </p>
+
       {/* Primary CTA — up top so hiring is one click away */}
       <div className="space-y-4">
         <div className="flex flex-col gap-3 sm:flex-row sm:flex-wrap">

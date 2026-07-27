@@ -14,15 +14,29 @@ export const skills: SkillGroup[] = [
       "RAG",
       "MCP servers",
       "Agent Skills",
+      "Evaluation & guardrails",
     ],
   },
   {
     category: "Agent SDKs & frameworks",
-    items: ["OpenAI Agents SDK", "Anthropic Agents SDK", "CrewAI"],
+    items: [
+      "OpenAI Agents SDK",
+      "Anthropic Agents SDK",
+      "LangGraph",
+      "LangChain",
+      "CrewAI",
+    ],
   },
   {
     category: "Voice & Telephony",
-    items: ["Voice AI", "SIP", "Local telephony", "LiveKit", "Twilio"],
+    items: [
+      "Voice AI",
+      "LiveKit",
+      "Retell AI",
+      "Twilio",
+      "Elastic SIP",
+      "Real-time speech pipelines",
+    ],
   },
   {
     category: "Sovereign & Infrastructure",
@@ -36,7 +50,7 @@ export const skills: SkillGroup[] = [
   },
   {
     category: "Models & Platforms",
-    items: ["Claude", "OpenAI", "Vector DBs"],
+    items: ["Claude", "OpenAI", "Vector databases"],
   },
   {
     category: "Backend & Web",

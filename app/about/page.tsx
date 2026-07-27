@@ -48,9 +48,10 @@ export default function AboutPage() {
           <p>
             <strong className="text-foreground">LabCloud</strong> was the one that
             worked. Diagnostic labs here ran on paper registers and WhatsApp; I
-            built them a cloud LIMS, sold it lab by lab, and sold the company at
-            the end of 2019. It runs today as HealthCloud, serving 70+ clients
-            under its new owners.
+            built them a cloud LIMS, sold it into 30+ working laboratories, and
+            sold the company in 2019. It runs today as HealthCloud, serving 70+
+            clients under its new owners — who came back in 2024 as a client of
+            mine and bought Chatify from me too.
           </p>
           <p>
             The ones that didn&apos;t work taught me more.{" "}
@@ -73,6 +74,16 @@ export default function AboutPage() {
             <strong className="text-foreground">TalkifAI</strong>, which took you
             from idea to a working voice agent in minutes; I wound it down in
             2026 and now build agentic systems for clients instead.
+          </p>
+          <p>
+            The client work runs across healthcare, government, e-commerce, and
+            legal services, in the US, Ireland, and Pakistan — a voice agent for
+            a US dental startup wired into its practice management system, a
+            listing and imaging pipeline for a Dublin Amazon seller, an emergency
+            health service for the Sindh government. I also spent a year teaching{" "}
+            <strong className="text-foreground">700+ students</strong> Python,
+            TypeScript, FastAPI, and Next.js at PIAIC, Pakistan&apos;s national AI
+            and cloud computing programme.
           </p>
           <p>
             What the founder years actually bought me: I know which corners cost

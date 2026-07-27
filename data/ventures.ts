@@ -45,7 +45,7 @@ export const ventures: Venture[] = [
     description:
       "A platform that makes it effortless to create, launch, and scale voice agents that sound human and deliver business outcomes.",
     story:
-      "Voice is the interface most businesses actually want and almost none can build. TalkifAI collapses that: describe the agent, connect a number, go live. I built the whole product surface — agent orchestration and telephony through to the dashboard, docs, and billing.",
+      "Voice is the interface most businesses actually want and almost none can build. TalkifAI collapses that: describe the agent, connect a number, go live. I built the whole product surface — agent orchestration and telephony through to the dashboard, docs, and billing — provisioned for 20 concurrent live calls, around 400 an hour, with per-call analytics on duration, recordings, and transcripts. Every layer was instrumented: API, telephony, database, recording and egress, batch jobs, and RAG memory, with automated end-to-end call testing behind a public status page reporting uptime per component. It ran for SIEHS, the Sindh government emergency health service, and for HealthCloud, in 90+ languages.",
     outcome: "Closed in 2026",
     role: "Founder",
     period: "2025 — 2026",
@@ -88,7 +88,7 @@ export const ventures: Venture[] = [
     description:
       "A cloud LIMS for Pakistani diagnostic labs — sample and test workflows, report delivery, and a patient-facing portal.",
     story:
-      "Labs here ran on paper registers and WhatsApp. LabCloud put the whole workflow — sample intake to report delivery — in one system, and gave patients a portal to pull their own results. I built it, sold it to real labs, and then sold the company. It runs today as HealthCloud — the only one of my ventures that outlived my involvement.",
+      "Labs here ran on paper registers and WhatsApp. LabCloud put the whole workflow — sample intake to report delivery — in one system, and gave patients a portal to pull their own results. I led development, recruited a CTO, ran product and commercial direction, and sold it into 30+ working laboratories before selling the company in 2019. It runs today as HealthCloud with 70+ clients under its new owners — who later became a client of mine, buying Chatify in 2024. The only one of my ventures that outlived my involvement.",
     outcome: "Acquired — now operating as HealthCloud",
     role: "Founder",
     period: "2015 — 2019",

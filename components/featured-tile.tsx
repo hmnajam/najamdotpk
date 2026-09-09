@@ -1,3 +1,5 @@
+import Image from "next/image";
+import { projectCovers } from "@/lib/project-covers";
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 
@@ -24,6 +26,7 @@ export function FeaturedTile({
   index: number;
 }) {
   const { slug, frontmatter } = project;
+  const cover = frontmatter.image ? projectCovers[frontmatter.image] : undefined;
   const tint = tints[index % tints.length];
 
   return (
@@ -31,11 +34,15 @@ export function FeaturedTile({
       href={`/projects/${slug}`}
       className="group relative mb-4 block break-inside-avoid overflow-hidden rounded-xl border border-border transition-all duration-200 hover:border-brand/40"
     >
-      {frontmatter.image ? (
+      {cover ? (
+        <Image src={cover} alt={frontmatter.title} sizes="(min-width: 1024px) 244px, (min-width: 768px) 30vw, 45vw" className="h-auto w-full transition-transform duration-300 group-hover:scale-[1.03]" />
+      ) : frontmatter.image ? (
         // Natural-height cover (masonry). Plain img so the column flow can use
         // the real aspect ratio of each project's image.
         // eslint-disable-next-line @next/next/no-img-element
         <img
+          loading="lazy"
+          decoding="async"
           src={frontmatter.image}
           alt={frontmatter.title}
           className="w-full transition-transform duration-300 group-hover:scale-[1.03]"
@@ -47,11 +54,11 @@ export function FeaturedTile({
       )}
 
       {/* Hover overlay — title + stack fade in over a scrim */}
-      <div className="pointer-events-none absolute inset-0 flex flex-col justify-end bg-gradient-to-t from-background/95 via-background/30 to-transparent p-4 opacity-0 transition-opacity duration-200 group-hover:opacity-100">
-        <span className="font-mono text-[10px] uppercase tracking-widest text-brand">
+      <div className="pointer-events-none absolute inset-0 flex flex-col justify-end bg-gradient-to-t from-black/85 via-black/20 to-transparent p-3 opacity-100 transition-opacity duration-200 sm:opacity-0 sm:group-hover:opacity-100 sm:group-focus-visible:opacity-100">
+        <span className="font-mono text-[10px] uppercase tracking-widest text-violet-200">
           {frontmatter.stack.slice(0, 3).join(" · ")}
         </span>
-        <h3 className="mt-1 flex items-center gap-1.5 text-lg font-medium tracking-tight">
+        <h3 className="mt-1 flex items-center gap-1.5 text-sm font-medium tracking-tight text-white sm:text-lg">
           {frontmatter.title}
           <ArrowUpRight className="h-4 w-4" />
         </h3>

@@ -2,6 +2,8 @@ export type TestimonialSource = "linkedin" | "twitter" | "email" | "upwork";
 
 export type Testimonial = {
   quote: string;
+  /** Set only after Najam confirms the quote, attribution and permission. */
+  verified?: boolean;
   author: string;
   title?: string;
   company?: string;
@@ -30,3 +32,6 @@ export const testimonials: Testimonial[] = [
     author: "Syed Azfar Hussain",
   },
 ];
+
+// Preserve source records; only approved, attributable quotes render.
+export const verifiedTestimonials = testimonials.filter((t) => t.verified === true && Boolean(t.sourceUrl));

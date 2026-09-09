@@ -44,6 +44,7 @@ export function ChatWidget() {
         role="dialog"
         aria-label="Virtual Najam — AI assistant"
         aria-hidden={!open}
+        inert={!open}
       >
         {/* Header */}
         <div className="flex items-center justify-between border-b border-border bg-card/80 px-4 py-3 backdrop-blur">

@@ -1,0 +1,75 @@
+---
+title: "TalkifAI"
+description: "An end-to-end Voice AI platform: orchestration, telephony, product interface, and production observability."
+date: "2026"
+period: "2025–2026"
+role: "Lead Engineer & Founder"
+caseStudy: true
+featured: true
+image: "/ventures/talkifai.jpg"
+stack: ["Voice AI", "Agent orchestration", "Telephony", "RAG", "Observability"]
+outcome: "Used by SIEHS and HealthCloud. Supported 90+ languages."
+---
+
+## Context
+
+TalkifAI was a Voice AI platform I founded and built end to end. It was used by
+SIEHS, the Sindh government's emergency health service, and HealthCloud.
+The platform operated during 2025–2026 and has since closed.
+
+The engineering work extended beyond the conversation itself: an agent needed
+telephony, a usable product interface, and enough operational visibility to
+understand what happened during a call.
+
+## My responsibility
+
+I built the agent orchestration, telephony integration, dashboard, documentation,
+and billing. This connected the real-time agent with the product people used to
+configure, operate, and review it.
+
+That scope required both implementation and product judgment: the call runtime
+and the surrounding product had to work together.
+
+## How the system fit together
+
+- **Agent orchestration and telephony** handled the live voice interaction.
+- **RAG memory** was part of the system's context layer.
+- **The dashboard** exposed per-call recordings, transcripts, and analytics,
+  including call duration.
+- **Documentation and billing** supported the product around the agent.
+- **Instrumentation** covered the API, telephony, database, recording and egress,
+  batch jobs, and RAG memory.
+
+These were parts of one product, with operational visibility across the
+conversation and the services supporting it.
+
+## Reliability and verification
+
+I implemented automated end-to-end call testing and public component-level
+status reporting. The reported uptime was **99.9%**.
+
+That figure is a historical reported metric, not a current service guarantee.
+It should be read alongside the component-level reporting rather than treated
+as a promise that every individual call would succeed.
+
+Per-call recordings, transcripts, and analytics provided another view of
+behavior: what a conversation contained, how long it lasted, and what a user
+could review after it ended.
+
+## Capacity and outcome
+
+The system was **provisioned for 20 simultaneous calls**, approximately
+**400 calls per hour**, and supported **90+ languages**. Provisioned capacity
+is distinct from measured peak traffic; these figures do not claim sustained
+customer usage at that rate.
+
+SIEHS and HealthCloud used the platform. TalkifAI closed in 2026, but the work
+demonstrates the engineering scope of a complete Voice AI product: real-time
+runtime, business integrations, user interface, testing, and operations.
+
+## What this brings to a team
+
+I can take responsibility for an agent beyond its prompt: how it connects to
+telephony, how users operate it, and how the team observes and tests it.
+That makes the work relevant to an engineering role owning a production voice
+feature or a larger agent platform.

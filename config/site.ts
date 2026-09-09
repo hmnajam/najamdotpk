@@ -3,12 +3,14 @@ export const siteConfig = {
   shortName: "najam.pk",
   url: "https://www.najam.pk",
   description:
-    "Najam Saeed — Agentic AI engineer building multi-agent workflows, real-time voice agents, and LLM integrations into existing business software. 6+ years of production systems; earlier, a lab management SaaS grown to 30+ laboratories and sold in 2019.",
+    "Agentic AI & Voice AI Engineer building production agents, real-time voice, RAG and MCP. Remote from Karachi. Founder with one company exit.",
   author: "Najam Saeed",
   available: true,
   firstName: "Najam",
   lastName: "Saeed",
-  eyebrow: "Agentic AI Engineer",
+  eyebrow: "Agentic AI & Voice AI Engineer",
+  positioning: "Agentic AI & Voice AI Engineer | Production AI Agents, Real-Time Voice, RAG & MCP | Founder with One Exit",
+  resume: "/Najam_Saeed_Resume.pdf",
   // Timezone / overlap — the first thing an overseas client checks.
   location: "Remote — Karachi (UTC+5)",
   availability:
@@ -31,14 +33,13 @@ export const siteConfig = {
     "I orchestrate multi-agent workflows.",
   ],
   intro:
-    "I architect and build autonomous AI agents, voice AI, and sovereign systems — the kind that run in production and earn their keep.",
+    "I build production AI agents and real-time voice systems, from orchestration and RAG to the APIs, telephony, and interfaces teams rely on.",
   nav: [
-    { title: "Blog", href: "/blog" },
-    { title: "Projects", href: "/projects" },
-    { title: "Ventures", href: "/ventures" },
+    { title: "Case studies", href: "/projects" },
+    { title: "Experience", href: "/about" },
     { title: "Certifications", href: "/certifications" },
-    { title: "About", href: "/about" },
-    { title: "Hire me", href: "/hire-me" },
+    { title: "Blog", href: "/blog" },
+    { title: "Work with me", href: "/hire-me" },
   ],
   socials: {
     github: "https://github.com/hmnajam",

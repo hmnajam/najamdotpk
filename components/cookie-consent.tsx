@@ -41,7 +41,7 @@ export function CookieConsent({ gaId }: { gaId?: string }) {
     <>
       {gaId && choice === "granted" && <GoogleAnalytics gaId={gaId} />}
       {choice === null && (
-        <div className="fixed inset-x-4 bottom-4 z-50 sm:inset-x-auto sm:left-6 sm:max-w-md">
+        <div className="fixed inset-x-4 bottom-24 sm:bottom-4 z-50 sm:inset-x-auto sm:left-6 sm:max-w-md">
           <div className="rounded-2xl border border-border bg-card/95 p-5 shadow-lg backdrop-blur">
             <p className="text-sm leading-relaxed text-muted-foreground">
               I use Google Analytics to see which pages get read. It sets

@@ -24,6 +24,7 @@ export function PersonWebsiteJsonLd() {
         siteConfig.socials.twitter,
         siteConfig.socials.linkedin,
       ],
+      homeLocation: { "@type": "City", name: "Karachi" },
       knowsAbout: [
         "Agentic AI",
         "AI Agents",
@@ -33,6 +34,15 @@ export function PersonWebsiteJsonLd() {
         "Multi-agent systems",
         "AI Infrastructure",
       ],
+    },
+    {
+      "@type": "ProfessionalService",
+      "@id": siteConfig.url + "/#consulting",
+      name: "Najam Saeed — AI Engineering Consulting",
+      url: siteConfig.url + "/hire-me",
+      description: "AI-agent, voice AI, RAG and business-system integration consulting.",
+      email: siteConfig.socials.email,
+      founder: { "@id": personId },
     },
     {
       "@type": "WebSite",
@@ -50,7 +60,7 @@ export function PersonWebsiteJsonLd() {
   return (
     <script
       type="application/ld+json"
-      dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd).replace(/</g, "\\u003c") }}
     />
   );
 }

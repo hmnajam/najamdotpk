@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 
@@ -38,8 +39,9 @@ export function ProjectCard({
       {/* Cover */}
       <div className="relative aspect-[16/10] overflow-hidden bg-secondary">
         {frontmatter.image ? (
-          // eslint-disable-next-line @next/next/no-img-element
-          <img
+          <Image
+            fill
+            sizes="(min-width: 1024px) 45vw, (min-width: 640px) 50vw, 100vw"
             src={frontmatter.image}
             alt={frontmatter.title}
             className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.04]"

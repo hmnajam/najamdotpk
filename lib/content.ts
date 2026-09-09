@@ -15,6 +15,10 @@ export type BaseFrontmatter = {
 export type ProjectFrontmatter = BaseFrontmatter & {
   stack: string[];
   featured?: boolean;
+  caseStudy?: boolean;
+  role?: string;
+  period?: string;
+  outcome?: string;
   image?: string;
   repo?: string;
   demo?: string;

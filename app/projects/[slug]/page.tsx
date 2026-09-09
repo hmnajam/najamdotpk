@@ -56,6 +56,7 @@ export default async function ProjectPage({
       </Link>
 
       <header className="space-y-4">
+        {frontmatter.caseStudy && <p className="font-mono text-xs uppercase tracking-widest text-brand">Engineering case study</p>}
         <h1 className="text-3xl font-semibold tracking-tight">
           {frontmatter.title}
         </h1>
@@ -104,12 +105,19 @@ export default async function ProjectPage({
             </Link>
           )}
           <span className="text-muted-foreground">
-            {formatDate(frontmatter.date)}
+            {frontmatter.period ?? formatDate(frontmatter.date)}
           </span>
         </div>
       </header>
 
+      {frontmatter.caseStudy && (
+        <dl className="grid gap-6 rounded-2xl border border-border bg-card p-6 sm:grid-cols-2">
+          <div><dt className="text-sm text-muted-foreground">Responsibility</dt><dd className="mt-2 font-medium">{frontmatter.role}</dd></div>
+          <div><dt className="text-sm text-muted-foreground">Outcome</dt><dd className="mt-2 font-medium">{frontmatter.outcome}</dd></div>
+        </dl>
+      )}
       <Mdx source={body} />
+      {frontmatter.caseStudy && <section className="flex flex-wrap gap-5 border-t border-border pt-6" aria-label="Next steps"><Link href="/hire-me#roles" className="font-medium underline underline-offset-4">Discuss an engineering role</Link><Link href="/hire-me#consulting" className="underline underline-offset-4">Discuss a similar project</Link></section>}
 
       {next && (
         <footer className="border-t border-border pt-8">

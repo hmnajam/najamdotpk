@@ -3,7 +3,6 @@ import {
   Boxes,
   FileText,
   MessageCircle,
-  Phone,
   Scale,
   ShoppingCart,
   type LucideIcon,

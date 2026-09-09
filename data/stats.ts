@@ -1,14 +1,11 @@
-export type Stat = {
-  value: string;
-  label: string;
-};
+export type Stat = { value: string; label: string };
 
-// Lead with the founder record — it's the claim nobody else on a shortlist can
-// make, and it's the one that's independently checkable.
+// Career proof supplied by Najam. Language support refers to TalkifAI.
 export const stats: Stat[] = [
-  { value: "4", label: "startups founded" },
-  { value: "1", label: "acquired" },
-  { value: "20+", label: "projects shipped" },
   { value: "10+", label: "years building" },
-  { value: "12", label: "happy clients" },
+  { value: "20+", label: "projects shipped" },
+  { value: "90+", label: "languages supported by TalkifAI" },
+  { value: "12+", label: "clients" },
+  { value: "4", label: "startups founded" },
+  { value: "1", label: "company acquisition" },
 ];

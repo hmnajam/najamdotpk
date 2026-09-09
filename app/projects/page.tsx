@@ -3,16 +3,17 @@ import type { Metadata } from "next";
 import { getProjects } from "@/lib/content";
 import { ProjectCard } from "@/components/project-card";
 import { PageHeader } from "@/components/page-header";
+import { CaseStudies } from "@/components/case-studies";
 import { Reveal } from "@/components/reveal";
 
 export const metadata: Metadata = {
   title: "Projects",
-  description: "A curated selection of work I'm proud of.",
+  description: "Engineering case studies: TalkifAI voice infrastructure, LabCloud laboratory software, and production AI projects.",
   alternates: { canonical: "/projects" },
 };
 
 export default function ProjectsPage() {
-  const projects = getProjects();
+  const projects = getProjects().filter((p) => !p.frontmatter.caseStudy);
   const featured = projects.filter((p) => p.frontmatter.featured);
   const rest = projects.filter((p) => !p.frontmatter.featured);
 
@@ -20,9 +21,11 @@ export default function ProjectsPage() {
     <div className="space-y-14">
       <PageHeader
         eyebrow="Work"
-        title="Selected projects"
-        description="A curated selection of work I'm proud of — autonomous agents, voice AI, and production systems. Not everything I've built, just the pieces worth showing."
+        title="Case studies & technical work"
+        description="Responsibilities, implementation, and outcomes — from real-time voice infrastructure to software used by working laboratories."
       />
+
+      <section className="space-y-6"><h2 className="text-2xl font-semibold">Primary case studies</h2><CaseStudies /></section>
 
       {projects.length === 0 ? (
         <p className="text-muted-foreground">No projects yet.</p>

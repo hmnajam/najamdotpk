@@ -14,7 +14,7 @@ import { Reveal } from "@/components/reveal";
 export const metadata: Metadata = {
   title: "About",
   description:
-    "Four startups, one exit, two honest failures — and what founding them taught me about building AI that actually ships.",
+    "Agentic AI and Voice AI engineering experience, technical leadership, and the founder history behind Najam’s production work.",
   alternates: { canonical: "/about" },
 };
 
@@ -35,23 +35,30 @@ export default function AboutPage() {
       <div className="space-y-6">
         <PageHeader
           eyebrow="About"
-          title="Four startups. One exit. Now I build agents."
+          title="Engineering ownership. Product judgment."
         />
         <div className="max-w-2xl space-y-4 text-lg leading-relaxed text-muted-foreground">
           <p>
-            I&apos;m a founder who codes — which is a different animal from an
-            engineer who takes tickets. I started my first company in 2015 and
-            haven&apos;t stopped since: four of them, one sold, three closed
-            with my own hands. Everything I know about building software, I
-            learned by having to sell the thing afterwards.
+            I&apos;m an Agentic AI and Voice AI engineer who takes responsibility
+            for the system around the model: integrations, product behavior,
+            and operation. I bring hands-on implementation and a founder&apos;s
+            understanding of customers to a product and engineering team.
+            Since 2015, I have also founded four companies, sold one, and closed
+            three. Those experiences shape how I scope and deliver software.
           </p>
           <p>
             <strong className="text-foreground">LabCloud</strong> was the one that
-            worked. Diagnostic labs here ran on paper registers and WhatsApp; I
-            built them a cloud LIMS, sold it into 30+ working laboratories, and
-            sold the company in 2019. It runs today as HealthCloud, serving 70+
-            clients under its new owners — who came back in 2024 as a client of
-            mine and bought Chatify from me too.
+            worked. Diagnostic labs here ran on paper registers and WhatsApp, so I
+            built them a cloud LIMS — sample intake through report delivery, plus
+            a portal where patients pulled their own results instead of coming
+            back for a printout. I led development, recruited a CTO, ran product
+            and commercial direction, and sold it into 30+ working laboratories
+            before selling the company in 2019. It runs today as HealthCloud,
+            serving 70+ clients under its new owners — who came back in 2024 as a
+            client of mine and bought{" "}
+            <strong className="text-foreground">Chatify</strong> from me too, a
+            WhatsApp platform doing 100,000+ messages a year. Two exits to the
+            same buyer, five years apart.
           </p>
           <p>
             The ones that didn&apos;t work taught me more.{" "}
@@ -72,15 +79,21 @@ export default function AboutPage() {
             logic, tool integrations, the backend underneath, and the product
             people actually use. The most recent was{" "}
             <strong className="text-foreground">TalkifAI</strong>, which took you
-            from idea to a working voice agent in minutes; I wound it down in
-            2026 and now build agentic systems for clients instead.
+            from idea to a working voice agent in minutes. I built the whole
+            surface — orchestration, telephony, dashboard, docs, billing —
+            provisioned for 20 concurrent calls in 90+ languages, and ran it for
+            SIEHS, the Sindh government&apos;s emergency health service. I wound
+            it down in 2026 and now build agentic systems for clients instead.
           </p>
           <p>
-            The client work runs across healthcare, government, e-commerce, and
+            That client work runs across healthcare, government, e-commerce, and
             legal services, in the US, Ireland, and Pakistan — a voice agent for
-            a US dental startup wired into its practice management system, a
-            listing and imaging pipeline for a Dublin Amazon seller, an emergency
-            health service for the Sindh government. I also spent a year teaching{" "}
+            a US dental startup, built solo and wired through Open Dental so it
+            could book real appointments against live practice records; an LLM
+            listing and imaging pipeline for a Dublin Amazon seller. Most of it
+            is the same job in different clothes: connecting agents to the
+            software a business already runs on, so they own the result outright
+            instead of renting it. I also spent a year teaching{" "}
             <strong className="text-foreground">700+ students</strong> Python,
             TypeScript, FastAPI, and Next.js at PIAIC, Pakistan&apos;s national AI
             and cloud computing programme.
@@ -158,7 +171,7 @@ export default function AboutPage() {
       </section>
 
       {/* Experience */}
-      <section className="space-y-5">
+      <section id="experience" className="scroll-mt-24 space-y-5">
         <SectionHeading>Experience</SectionHeading>
         <ol className="relative space-y-8 border-l border-border pl-6">
           {experience.map((job) => (

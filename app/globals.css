@@ -59,7 +59,7 @@
     --input: 256 12% 15%;
     --ring: 262 90% 66%;
     --brand: 262 90% 66%;
-    --brand-foreground: 0 0% 100%;
+    --brand-foreground: 255 30% 8%;
     --brand-2: 274 88% 70%;
     --brand-3: 250 92% 68%;
     --chart-1: 220 70% 50%;
@@ -143,5 +143,19 @@
       transform: none;
       transition: none;
     }
+  }
+}
+
+/* Visible keyboard navigation and respect for reduced-motion preferences. */
+@layer base {
+  :focus-visible { outline: 2px solid hsl(var(--ring)); outline-offset: 4px; }
+  html { scroll-padding-top: 6rem; }
+}
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
   }
 }

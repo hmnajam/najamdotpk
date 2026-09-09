@@ -4,14 +4,15 @@ import { AppWindow, ArrowRight, Bot, CalendarClock, Mail, Phone, ShieldCheck } f
 
 import { siteConfig } from "@/config/site";
 import { WhatsappIcon } from "@/components/whatsapp-icon";
-import { testimonials } from "@/data/testimonials";
+import { verifiedTestimonials as testimonials } from "@/data/testimonials";
 import { Button } from "@/components/ui/button";
 import { Testimonials } from "@/components/testimonials";
+import { WorkPaths } from "@/components/work-paths";
 import { PageHeader } from "@/components/page-header";
 
 export const metadata: Metadata = {
-  title: "Hire me",
-  description: "AI agents, voice AI, and sovereign AI systems — built for you.",
+  title: "Remote AI Engineering & Consulting",
+  description: "Hire Najam for a remote Agentic AI or Voice AI engineering role, or discuss a consulting project. Karachi UTC+5, UK/EU and US overlap.",
   alternates: { canonical: "/hire-me" },
 };
 
@@ -47,9 +48,11 @@ export default function HireMePage() {
     <div className="space-y-12">
       <PageHeader
         eyebrow="Hire me"
-        title="Let's build something intelligent"
-        description="I help teams and founders ship AI that does real work — agents, voice assistants, and systems you own. Here's what I can do for you."
+        title="Let’s build your next AI system"
+        description="Join your engineering team or deliver a focused consulting engagement. Start with the path that fits your needs."
       />
+
+      <WorkPaths />
 
       {/* Working hours — the first thing an overseas client checks */}
       <p className="font-mono text-xs uppercase tracking-widest text-muted-foreground">
@@ -105,7 +108,7 @@ export default function HireMePage() {
         </p>
       </div>
 
-      <section className="grid gap-4 sm:grid-cols-2">
+      <section id="services" aria-label="Consulting services" className="grid scroll-mt-24 gap-4 sm:grid-cols-2">
         {services.map((service) => (
           <div
             key={service.title}

@@ -139,7 +139,7 @@ function VentureSpotlight({ venture }: { venture: Venture }) {
       />
 
       <div className="relative grid gap-0 lg:grid-cols-[5fr_7fr]">
-        <div className="relative min-h-[220px] overflow-hidden border-b border-border lg:min-h-full lg:border-b-0 lg:border-r">
+        <div className="relative min-h-[220px] overflow-hidden lg:min-h-full">
           {image ? (
             <Image
               src={image}
@@ -151,10 +151,13 @@ function VentureSpotlight({ venture }: { venture: Venture }) {
           ) : (
             <div className="absolute inset-0 bg-secondary bg-gradient-to-br from-violet-500/40 to-indigo-700/25" />
           )}
-          <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
+          {/* No divider here on purpose — a hard edge made one card read as two.
+              The cover instead dissolves into the card surface: downward on
+              mobile, rightward into the copy once the split goes horizontal. */}
+          <div className="absolute inset-0 bg-gradient-to-t from-card via-card/40 to-transparent lg:bg-gradient-to-r lg:from-transparent lg:via-card/30 lg:to-card" />
         </div>
 
-        <div className="flex flex-col gap-4 p-6 sm:p-8">
+        <div className="relative flex flex-col gap-4 p-6 sm:p-8 lg:-ml-16 lg:pl-0">
           <div className="flex flex-wrap items-center gap-3">
             <span className="inline-flex items-center gap-1.5 rounded-md bg-brand/15 px-2.5 py-1 font-mono text-[10px] uppercase tracking-widest text-brand">
               <span className="h-1.5 w-1.5 rounded-full bg-current" />

@@ -16,6 +16,12 @@ export function Navbar() {
   // Close the mobile menu on route change.
   React.useEffect(() => setOpen(false), [pathname]);
 
+  React.useEffect(() => {
+    const close = (e: KeyboardEvent) => { if (e.key === "Escape") setOpen(false); };
+    window.addEventListener("keydown", close);
+    return () => window.removeEventListener("keydown", close);
+  }, []);
+
   const isActive = (href: string) =>
     pathname === href || pathname.startsWith(href + "/");
 
@@ -32,7 +38,7 @@ export function Navbar() {
         </Link>
 
         <div className="flex items-center gap-1 sm:gap-2">
-          <nav className="hidden items-center gap-6 sm:flex">
+          <nav aria-label="Main navigation" className="hidden items-center gap-6 lg:flex">
             {siteConfig.nav.map((item) => {
               const isCta = item.href === "/hire-me";
               if (isCta) {
@@ -68,9 +74,10 @@ export function Navbar() {
           <button
             type="button"
             onClick={() => setOpen((v) => !v)}
-            className="inline-flex h-9 w-9 items-center justify-center rounded-md text-muted-foreground hover:text-foreground sm:hidden"
+            className="inline-flex h-9 w-9 items-center justify-center rounded-md text-muted-foreground hover:text-foreground lg:hidden"
             aria-label={open ? "Close menu" : "Open menu"}
             aria-expanded={open}
+            aria-controls="mobile-navigation"
           >
             {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
           </button>
@@ -78,7 +85,7 @@ export function Navbar() {
       </div>
 
       {open && (
-        <nav className="border-t border-border/60 px-4 py-3 sm:hidden">
+        <nav id="mobile-navigation" aria-label="Mobile navigation" className="border-t border-border/60 px-4 py-3 lg:hidden">
           <div className="flex flex-col gap-1">
             {siteConfig.nav.map((item) => {
               const isCta = item.href === "/hire-me";

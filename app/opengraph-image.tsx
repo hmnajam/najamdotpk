@@ -8,7 +8,7 @@ export const alt = `${siteConfig.name} — ${siteConfig.eyebrow}`;
 
 export default function Image() {
   return renderOgImage({
-    title: "I build AI agents.",
+    title: "Production AI. Real-time voice.",
     subtitle: siteConfig.intro,
   });
 }

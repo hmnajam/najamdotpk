@@ -25,7 +25,7 @@ const geistMono = localFont({
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
   title: {
-    default: siteConfig.name,
+    default: siteConfig.name + " — " + siteConfig.eyebrow,
     template: `%s · ${siteConfig.name}`,
   },
   description: siteConfig.description,
@@ -42,13 +42,13 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_US",
     url: siteConfig.url,
-    title: siteConfig.name,
+    title: siteConfig.name + " — " + siteConfig.eyebrow,
     description: siteConfig.description,
     siteName: siteConfig.name,
   },
   twitter: {
     card: "summary_large_image",
-    title: siteConfig.name,
+    title: siteConfig.name + " — " + siteConfig.eyebrow,
     description: siteConfig.description,
   },
 };
@@ -79,8 +79,9 @@ export default function RootLayout({
             className="bg-grid pointer-events-none fixed inset-0 -z-20 opacity-60 [mask-image:radial-gradient(80%_60%_at_50%_0%,black,transparent)]"
           />
           <div className="flex min-h-dvh flex-col">
+            <a href="#main-content" className="sr-only fixed left-4 top-4 z-50 rounded-md bg-background p-3 text-foreground focus:not-sr-only">Skip to content</a>
             <Navbar />
-            <main className="mx-auto w-full max-w-[1600px] flex-1 px-5 py-12 sm:px-8 lg:px-14 lg:py-16 xl:px-20">
+            <main id="main-content" tabIndex={-1} className="mx-auto w-full max-w-[1600px] flex-1 px-5 py-12 sm:px-8 lg:px-14 lg:py-16 xl:px-20">
               {children}
             </main>
             <Footer />

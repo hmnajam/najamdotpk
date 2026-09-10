@@ -19,6 +19,7 @@ export function PostCard({ post }: { post: Content<PostFrontmatter> }) {
         title={frontmatter.title}
         category={frontmatter.category}
         image={frontmatter.image}
+        imageHasText={frontmatter.imageHasText}
         className="aspect-[16/10]"
       />
       <div className="flex flex-1 flex-col gap-2 p-5">

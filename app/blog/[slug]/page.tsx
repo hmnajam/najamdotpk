@@ -74,6 +74,8 @@ export default async function PostPage({
       <PostCover
         title={frontmatter.title}
         category={frontmatter.category}
+        image={frontmatter.image}
+        imageHasText={frontmatter.imageHasText}
         size="hero"
         className="aspect-[16/9] rounded-2xl border border-border"
       />

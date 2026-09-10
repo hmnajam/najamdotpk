@@ -1,0 +1,67 @@
+---
+title: "Claude Fable 5 review: plan with it, watch the bill"
+description: "Fable 5 impressed me at project planning. A stubborn refusal and $100 in credits spent in a few sessions changed how I would use it."
+date: "2026-08-01"
+tags: ["claude", "fable-5", "review", "project-planning"]
+category: "AI & Agents"
+image: "/blog/fable-5-review-v2.webp"
+imageHasText: true
+published: true
+---
+
+Claude Fable 5 impressed me most at project planning. My recommendation is to pay for that capability when a cheaper model cannot do the job, then let lower-priced models handle the execution.
+
+Two things made me cautious about using it for everything: a refusal that left me unable to continue a project in the same chat, and $100 in Anthropic credit that disappeared in just a few sessions.
+
+## Planning was the strongest part
+
+Fable 5 was great at helping me plan a project. That is the part of the work where I would choose to use it again.
+
+Planning deserves a serious share of the budget. Before implementation begins, you are deciding what the system needs to do, which constraints matter, and what you can reasonably leave out. Those decisions shape everything that follows. Producing code quickly is less useful when the direction itself is wrong.
+
+[Anthropic's launch announcement](https://www.anthropic.com/news/claude-fable-5-mythos-5) emphasizes complex software engineering and longer-running work. Those are the company's claims. The part that stood out in my own use was the planning.
+
+That distinction matters when choosing a model. I do not need the most expensive option attached to every step of a project. I need a good enough answer for the decision in front of me. Sometimes that decision deserves more reasoning; sometimes it is an implementation task with clear instructions and a straightforward way to test the result.
+
+For Fable 5, I would spend the money at the point where the project still has difficult decisions to make.
+
+## The refusal I couldn't recover from
+
+The worst experience was a refusal that stopped the work. I tried rewinding the chat, but I still could not get the project moving again in that session. I eventually had to restart the whole project in another chat.
+
+That was deeply frustrating. Rewinding felt like it should give me a route back to a usable conversation. In this case, it did not.
+
+Anthropic acknowledges in its launch documentation that Fable 5's safeguards can catch harmless requests. That provides context, but it does not establish what caused my particular session to get stuck. I cannot tell from the conversation whether the problem was a classifier, the model's response to the existing context, or something else.
+
+What I can say is what happened: I could not continue, even after rewinding, and I had to start again.
+
+This changes how I think about long-running work with an agent. A useful project plan should exist outside the chat. Requirements, decisions, unresolved questions, and the next steps need to be saved somewhere I control. If the conversation becomes unusable, the work should still be recoverable.
+
+I would treat that as part of the workflow from the beginning, especially when the model is expensive.
+
+## The credit went quickly
+
+Anthropic gave me $100 in credit. I burned through it in just a few sessions.
+
+That is my experience, not a prediction of what every user will spend. I do not have a session-by-session token breakdown here, and the size of a task will affect its cost. But it was enough to make the price feel very real.
+
+For context, Anthropic announced Fable 5's API pricing at **$10 per million input tokens and $50 per million output tokens**. Those API rates are not a reconstruction of my credit usage; they are a published reference for the model's price.
+
+I would be careful about letting the same model handle planning, implementation, revisions, and every small follow-up simply because it already has the context. That convenience can become expensive.
+
+The question I would ask before another session is specific: what is the cheaper model failing to do, and is solving that problem worth the extra spend?
+
+## How I would use it
+
+My preferred approach would be:
+
+1. **Start with the cheaper model.** See whether it can handle the work before escalating.
+2. **Bring in Fable 5 for difficult planning.** Give it the requirements, constraints, and the decisions that remain unresolved.
+3. **Save a usable handoff.** Capture the plan, assumptions, interfaces, implementation steps, and acceptance criteria outside the conversation.
+4. **Use a lower-priced model to execute.** Give it bounded tasks and inspect the results with the usual tests and review.
+5. **Return to Fable only when needed.** A hard architectural question may justify another session. Routine edits usually would not.
+
+That is a recommendation, not a claim that I have benchmarked this workflow across every kind of project. The handoff still needs judgement: if the implementation reveals a bad assumption, revisit the plan rather than blindly following it.
+
+Fable 5 earned a place in my toolbox for planning. It did not convince me to make it my default for all the work that comes afterwards. I would use it when the problem demands it, save the decisions, and move execution to a model whose cost fits the task.
+

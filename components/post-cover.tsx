@@ -10,14 +10,27 @@ export function PostCover({
   className,
   size = "card",
   image,
+  imageHasText = false,
 }: {
   title: string;
   category?: string;
   className?: string;
   size?: "card" | "hero";
   image?: string;
+  imageHasText?: boolean;
 }) {
   const cat = getCategory(category);
+
+  if (image && imageHasText) {
+    return (
+      <div className={cn("relative overflow-hidden bg-neutral-950", className)}>
+        {/* Keep embedded typography intact, including in narrower card crops. */}
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img src={image} alt="" className="absolute inset-0 h-full w-full object-contain" />
+        <h3 className="sr-only">{title}</h3>
+      </div>
+    );
+  }
 
   return (
     <div

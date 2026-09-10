@@ -24,6 +24,7 @@ export function FeaturedWriting({ posts }: { posts: Content<PostFrontmatter>[] }
           title={lead.frontmatter.title}
           category={lead.frontmatter.category}
           image={lead.frontmatter.image}
+          imageHasText={lead.frontmatter.imageHasText}
           size="hero"
           className="aspect-[16/10]"
         />
@@ -48,6 +49,7 @@ export function FeaturedWriting({ posts }: { posts: Content<PostFrontmatter>[] }
                 title={post.frontmatter.title}
                 category={post.frontmatter.category}
                 image={post.frontmatter.image}
+                imageHasText={post.frontmatter.imageHasText}
                 className="hidden w-40 shrink-0 rounded-xl sm:flex"
               />
               <div className="flex flex-1 flex-col justify-center gap-2 py-1 pr-2">

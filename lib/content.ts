@@ -31,6 +31,7 @@ export type PostFrontmatter = BaseFrontmatter & {
   category?: string;
   published?: boolean;
   image?: string; // optional cover; falls back to generated PostCover
+  imageHasText?: boolean; // display finished cover artwork without another title overlay
 };
 
 export type Content<T> = {

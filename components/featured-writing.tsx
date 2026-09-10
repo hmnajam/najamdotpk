@@ -18,7 +18,7 @@ export function FeaturedWriting({ posts }: { posts: Content<PostFrontmatter>[] }
       {/* Lead post — large cover, big title */}
       <Link
         href={`/blog/${lead.slug}`}
-        className="group flex flex-col overflow-hidden rounded-2xl border border-border bg-card/40 transition-all duration-200 hover:-translate-y-1 hover:border-brand/40"
+        className="group flex flex-col overflow-hidden rounded-2xl border border-border bg-card shadow-sm transition-all duration-200 hover:-translate-y-1 hover:border-brand/40"
       >
         <PostCover
           title={lead.frontmatter.title}
@@ -42,7 +42,7 @@ export function FeaturedWriting({ posts }: { posts: Content<PostFrontmatter>[] }
             <Link
               key={post.slug}
               href={`/blog/${post.slug}`}
-              className="group flex flex-1 gap-4 overflow-hidden rounded-2xl border border-border bg-card/40 p-3 transition-all duration-200 hover:-translate-y-1 hover:border-brand/40"
+              className="group flex flex-1 gap-4 overflow-hidden rounded-2xl border border-border bg-card shadow-sm p-3 transition-all duration-200 hover:-translate-y-1 hover:border-brand/40"
             >
               <PostCover
                 title={post.frontmatter.title}
@@ -70,7 +70,7 @@ export function FeaturedWriting({ posts }: { posts: Content<PostFrontmatter>[] }
 function PostMeta({ post }: { post: Content<PostFrontmatter> }) {
   const cat = getCategory(post.frontmatter.category);
   return (
-    <div className="flex items-center gap-2 text-xs text-muted-foreground">
+    <div className="flex flex-wrap items-center gap-2 text-xs text-muted-foreground">
       {post.frontmatter.category && (
         <span
           className={cn(

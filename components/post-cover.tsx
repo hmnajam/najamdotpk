@@ -22,7 +22,7 @@ export function PostCover({
   return (
     <div
       className={cn(
-        "relative flex flex-col justify-between overflow-hidden bg-gradient-to-br",
+        "relative flex flex-col justify-between overflow-hidden bg-slate-900 bg-gradient-to-br",
         cat.cover,
         className
       )}
@@ -40,9 +40,9 @@ export function PostCover({
         </>
       ) : (
         <>
-          {/* Subtle grid + corner glow for texture */}
+          {/* Subtle grid and shading keep white labels readable in both themes */}
           <div className="bg-grid pointer-events-none absolute inset-0 opacity-20" />
-          <div className="pointer-events-none absolute -right-12 -top-12 h-40 w-40 rounded-full bg-white/20 blur-3xl" />
+          <div className="pointer-events-none absolute inset-0 bg-black/15" />
         </>
       )}
 
@@ -52,10 +52,10 @@ export function PostCover({
           size === "hero" && "p-6 sm:p-8"
         )}
       >
-        <span className="font-mono text-[10px] uppercase tracking-widest text-white/80">
+        <span className="font-mono text-[10px] uppercase tracking-widest text-white">
           {cat.label}
         </span>
-        <span className="font-mono text-[10px] tracking-tight text-white/70">
+        <span className="font-mono text-[10px] tracking-tight text-white">
           {siteConfig.shortName}
         </span>
       </div>

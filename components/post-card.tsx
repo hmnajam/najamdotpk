@@ -13,7 +13,7 @@ export function PostCard({ post }: { post: Content<PostFrontmatter> }) {
   return (
     <Link
       href={`/blog/${slug}`}
-      className="group flex flex-col overflow-hidden rounded-xl border border-border bg-card/40 transition-all duration-200 hover:-translate-y-1 hover:border-brand/40"
+      className="group flex flex-col overflow-hidden rounded-xl border border-border bg-card shadow-sm transition-all duration-200 hover:-translate-y-1 hover:border-brand/40"
     >
       <PostCover
         title={frontmatter.title}
@@ -22,7 +22,7 @@ export function PostCard({ post }: { post: Content<PostFrontmatter> }) {
         className="aspect-[16/10]"
       />
       <div className="flex flex-1 flex-col gap-2 p-5">
-        <div className="flex items-center gap-2 text-xs text-muted-foreground">
+        <div className="flex flex-wrap items-center gap-2 text-xs text-muted-foreground">
           {frontmatter.category && (
             <span
               className={cn(

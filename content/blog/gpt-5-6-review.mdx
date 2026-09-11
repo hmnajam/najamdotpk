@@ -1,0 +1,70 @@
+---
+title: "GPT-5.6 review: three models, no automatic winner"
+description: "A look at early reviews of Sol, Terra, and Luna: coding ability, model choice, and the difference between token prices and useful work."
+date: "2026-07-16"
+tags: ["gpt-5-6", "codex", "review", "developer-tools"]
+category: "AI & Agents"
+image: "/blog/gpt-5-6-review-v3.webp"
+imageHasText: true
+published: true
+---
+
+The early reviews of GPT-5.6 suggest a capable family of models, with a practical tradeoff: the strongest option is not automatically the best value for every task. Sol gets attention for difficult work, while Terra and Luna make the choice more interesting than simply selecting the most expensive model.
+
+I have tried Sol, Terra, and Luna through Codex and OpenClaw, but I have not used them enough to give a detailed personal verdict. The original overview brings together early reviews and official information available by 16 July 2026. The experiences below belong to the people who reported them.
+
+**Updated 10 September 2026:** Added [Terra's later API price reduction](#update-10-september-2026), which took effect on 30 July 2026. The original publication date and launch-price table are retained.
+
+## What Sol, Terra, and Luna actually are
+
+GPT-5.6 is a model family. Codex and OpenClaw are the tools through which I have used it; their behaviour and setup are part of the experience, too.
+
+[OpenAI's launch announcement](https://openai.com/index/gpt-5-6/) positions **Sol** as the flagship, **Terra** as the balance between capability and cost, and **Luna** as the economical option. It announced access across ChatGPT, Codex, and the API, with model choices depending on the plan. That does not make a ChatGPT subscription and API billing the same thing.
+
+The family supports coding and tool-based work, including browsing and computer use. Those are capabilities OpenAI describes, rather than things I have personally tested across all three models.
+
+## Coding looks promising, but the enthusiasm has limits
+
+In his [9 July assessment](https://simonwillison.net/2026/Jul/9/gpt-5-6/), Simon Willison described Sol as competent after early access, while saying it had not yet seemed better than Fable for his complex coding work. That is a useful distinction: a model can be good without replacing the tool someone already prefers.
+
+The [early Codex discussion](https://www.reddit.com/r/codex/comments/1usmvs9/what_are_we_thinking_of_gpt_56/) contains much stronger praise, alongside complaints about frontend results, unnecessary complexity, and incomplete work. Some users describe substantial progress on their projects; others say the improvement does not justify the usage.
+
+These are individual reports, with different projects, prompts, and reasoning settings. They show what to look for during a trial. They do not establish a reliable average success rate, and I would not turn the most enthusiastic comment into a promise about everyone else's work.
+
+## Terra and Luna deserve separate consideration
+
+[LayerLens's 14 July evaluation](https://layerlens.ai/blog/gpt-5-6-benchmark-review-sol-terra-luna) makes a case for Terra in everyday development and Luna in simpler, high-volume work, reserving Sol for more demanding tasks. Its methodology combines published benchmarks with its own evaluation runs, so the figures should not all be treated as independent measurements.
+
+One useful caution from that review is that accepting a large input does not guarantee equally good recall. It highlights a substantial gap between Luna and the larger models on long-context retrieval tests. That is a reason to test Luna carefully on large documents or repositories, rather than judging it only by the advertised context window.
+
+The practical question is whether a model completes the particular task with an acceptable amount of correction. A smaller model that handles a bounded job well may be enough. A cheaper response that needs several repairs is a different proposition.
+
+## The token price is only the starting point
+
+On 16 July 2026, OpenAI's announced standard API prices were:
+
+| Model | Input per million tokens | Output per million tokens |
+| --- | ---: | ---: |
+| GPT-5.6 Sol | $5.00 | $30.00 |
+| GPT-5.6 Terra | $2.50 | $15.00 |
+| GPT-5.6 Luna | $1.00 | $6.00 |
+
+These are the [launch API rates](https://openai.com/index/gpt-5-6/), not current-price guarantees or a conversion of Codex subscription allowances into dollars. Caching, long inputs, and other service options can change the bill.
+
+Willison's [small visual-generation comparison](https://simonwillison.net/2026/Jul/9/gpt-5-6/) illustrates why reasoning settings matter. Across the three models and six effort levels, his examples ranged from 0.71 cents to 48.55 cents. Those were his API tests, not my spending, and they are not a forecast for a coding session.
+
+I do not have enough usage of my own to offer a useful cost comparison between Codex and OpenClaw.
+
+## Update: 10 September 2026
+
+On **30 July 2026**, OpenAI [reduced Terra's API prices by 20%](https://developers.openai.com/api/docs/changelog). Its standard rates fell from **$2.50 to $2 per million input tokens** and from **$15 to $12 per million output tokens**. Those lower rates are still listed in [Terra's model documentation](https://developers.openai.com/api/docs/models/gpt-5.6-terra) as of this update.
+
+The reduction happened after this post's 16 July publication date. The table above preserves the launch prices for historical context; it is not a current price comparison across the family.
+
+This lowers Terra's token cost, but it does not establish how long a Codex subscription allowance will last or what my OpenClaw sessions cost. It also does not change the scope of this review: my own hands-on use remains limited.
+
+## A useful shortlist, not a settled ranking
+
+The early evidence supports trying Sol on difficult work and evaluating Terra or Luna where cost matters. It does not support declaring one model the right default for everyone.
+
+For developers choosing between them, a familiar task is a better starting point than a leaderboard alone. Compare the finished result, the corrections it needed, the time it took, and the usage it consumed. Those are the details that would turn this early overview into a recommendation grounded in actual work.
